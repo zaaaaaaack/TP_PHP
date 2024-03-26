@@ -1,3 +1,36 @@
+<?php 
+session_start();
+    require 'ConnexionBD.php';
+    $bdd = ConnexionBD::getInstance();
+    if(isset($_POST['signup'])){
+        if(!empty($_POST['fullname']) && !empty($_POST['username']) && !empty($_POST['email']) && !empty($_POST['phone']) && !empty($_POST['password']) && !empty($_POST['password2'])){
+            $fullname = htmlspecialchars($_POST['fullname']);
+            $username = htmlspecialchars($_POST['username']);
+            $email = htmlspecialchars($_POST['email']);
+            $phone = htmlspecialchars($_POST['phone']);
+            $password = sha1(htmlspecialchars($_POST['password']));
+            $password2 = sha1(htmlspecialchars($_POST['password2']));
+            if($password == $password2){
+                $req = $bdd->prepare("SELECT * FROM users WHERE username = ? OR email = ?");
+                $req->execute(array($username, $email));
+                if(($req->rowCount()) == 0){
+                    $req = $bdd->prepare("INSERT INTO users(fullname, username, email, phone, password) VALUES(?, ?, ?, ?, ?)");
+                    $req->execute(array($fullname, $username, $email, $phone, $password));
+                    echo "Votre compte a été crée avec succès";
+                }else{
+                    echo "Username ou email déjà utilisé";
+                }
+            }else{
+                echo "Les mots de passe ne correspondent pas";
+            }
+        }
+    
+    }
+       
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,20 +65,23 @@
                 </div>
                 <div class="row">
                     <i class="fa-solid fa-lock"></i>
-                    <input type="password" placeholder="Password" name ="password" required>
+                    <input id ="password" type="password" placeholder="Password" name ="password" required onkeyup="check();">
                 </div>
                 <div class="row">
                     <i class="fa-solid fa-lock"></i>
-                    <input type="password" placeholder="Confirm Password" name ="password2" required>
+                    <input id ="confirm_password" type="password" placeholder="Confirm Password" name ="password2" required onkeyup="check();">
+                    <span id="message"></span>
                 </div>
                 <div class="row button">
                     <input type="submit" value="Sign up" name="signup">
                 </div>
                 <div class="login-link">
                     Already have an account? <a href="login.php">Login now</a>
+                    
                 </div>
             </form>
         </div>
     </div>
+    <script src="js/chechMatching.js"></script>
 </body>
 </html>

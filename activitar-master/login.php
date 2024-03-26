@@ -5,7 +5,7 @@ session_start();
     if(isset($_POST['login'])){
         if(!empty($_POST['username']) && !empty($_POST['password'])){
             $username = htmlspecialchars($_POST['username']);
-            $password = htmlspecialchars($_POST['password']);
+            $password = sha1(htmlspecialchars($_POST['password']));
             $req = $bdd->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
             $req->execute(array($username, $password));
             if(($req->rowCount())== 1){
