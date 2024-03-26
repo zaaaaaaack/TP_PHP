@@ -13,7 +13,7 @@ session_start();
                 $_SESSION['id'] = $user['id'];
                 $_SESSION['username'] = $user['username'];
                 $_Session['password'] = $user['password'];
-                header('Location: index.php');
+                header('Location: home.php');
             }else{
                 echo "Username ou mot de passe incorrect";
             }
@@ -54,6 +54,9 @@ session_start();
                 </div>
                 <div class="signup-link">
                     Not a member? <a href="register.php">Signup now</a>
+                </div>
+                <div class="signup-link">
+                    <a href="index.html">Acceuil</a>
                 </div>
             </form>
         </div>
