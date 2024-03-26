@@ -6,16 +6,14 @@
     font-family: 'Poppins', sans-serif;
 }
 html,body{
-    height:100%;
-    display:flex;
-    overflow:scroll;
+    overflow:hidden;
     background:#1abc9c;
 
 }
 .container{
-    max-width: 500px;
+    max-width: 440px;
     padding:0 20px;
-    margin: 70px auto;
+    margin: 110px auto;
 }
 .wrapper{
     width :450px;
