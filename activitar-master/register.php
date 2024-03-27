@@ -19,10 +19,10 @@ session_start();
                     
                     header('Location: login.php');
                 }else{
-                    echo "Username ou email déjà utilisé";
+                    echo "<script>alert('Username ou email déjà utilisé'</script>)";
                 }
             }else{
-                echo "Les mots de passe ne correspondent pas";
+                echo "<script>alert('Les mots de passe ne correspondent pas')</script>";
             }
         }
     

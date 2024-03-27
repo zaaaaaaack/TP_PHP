@@ -1,15 +1,24 @@
 <?php 
-    session_start();   
-    if(!($_SESSION['username'])){
-        header('Location: login.php');
+    session_start();
+    require 'ConnexionBD.php';
+    if(!$_SESSION['adminUsername']){
+        if(!$_SESSION['username']){
+            header('Location: login.php');
+        }else{
+            header('Location: home.php');
     }
-    echo "Hello {$_SESSION['username']} vous êtes connecté";
-    /**This is the user's home page where the user
-     * interface would be displayed
-     * i.e the user dashboard , shopping cart ,timetable etc
-     * the logout interface will be modified later
-     */
+    }
+    else{
+        echo "Welcome ".$_SESSION['adminUsername'];
 
+    }
+   /*
+   This is the admin home page 
+   where the admin dashboard would be displayed
+   the logout interface will be modified later 
+   after integration of the admin dashboard
+   
+   */ 
 ?>
 <!DOCTYPE html>
 <html>

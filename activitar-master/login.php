@@ -15,11 +15,12 @@ session_start();
                 $_Session['password'] = $user['password'];
                 header('Location: home.php');
             }else{
-                echo "Username ou mot de passe incorrect";
+                echo "<script>alert('Username ou mot de passe incorrect')</script>";
             }
             
         }
     }
+    
        
 
 
@@ -54,6 +55,9 @@ session_start();
                 </div>
                 <div class="signup-link">
                     Not a member? <a href="register.php">Signup now</a>
+                </div>
+                <div class="signup-link">
+                    <a href="adminLogin.php">Login as Admin</a>
                 </div>
                 <div class="signup-link">
                     <a href="index.html">Acceuil</a>
