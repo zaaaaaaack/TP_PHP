@@ -1,8 +1,6 @@
 <?php 
-    session_start();   
-    if(!($_SESSION['username'])){
-        header('Location: login.php');
-    }
+    require 'loginFunctions.php';
+    checkNotLoggedIn();
     echo "Hello {$_SESSION['username']} vous êtes connecté";
     /**This is the user's home page where the user
      * interface would be displayed

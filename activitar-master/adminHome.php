@@ -1,17 +1,8 @@
 <?php 
-    session_start();
-    require 'ConnexionBD.php';
-    if(!$_SESSION['adminUsername']){
-        if(!$_SESSION['username']){
-            header('Location: login.php');
-        }else{
-            header('Location: home.php');
-    }
-    }
-    else{
-        echo "Welcome ".$_SESSION['adminUsername'];
-
-    }
+    require 'loginFunctions.php';
+    checkNotLoggedIn();
+    checkLoggedIn();
+    echo "Welcome Admin, {$_SESSION['adminUsername']} ";
    /*
    This is the admin home page 
    where the admin dashboard would be displayed

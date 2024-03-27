@@ -1,26 +1,7 @@
 <?php
-    session_start();
-    require 'ConnexionBD.php';
-    if(isset($_POST['submit'])){
-        if(!empty($_POST['username']) && !empty($_POST['password'])){
-            $username = htmlspecialchars($_POST['username']);
-            $password = htmlspecialchars($_POST['password']);
-            $bdd = ConnexionBD::getInstance();
-            $req = $bdd->prepare("SELECT * FROM admin WHERE username = ? AND password = ?");
-            $req->execute(array($username, $password));
-            if(($req->rowCount())== 1){
-                $user = $req->fetch(PDO::FETCH_ASSOC);
-                $_SESSION['id'] = $user['id'];
-                $_SESSION['adminUsername'] = $user['username'];
-                $_Session['password'] = $user['password'];
-                header('Location: adminHome.php');
-            }else{
-                echo "<script>alert('Username ou mot de passe incorrect')</script>";
-            }
-        }else{
-            echo "<script>alert('Veuillez remplir tous les champs')</script>";
-        }
-    }
+    require 'loginFunctions.php';
+    checkLoggedIn();
+    attemptLogin("admin", "adminHome.php");
 ?>
 
 <html>
