@@ -1,28 +1,7 @@
 <?php 
-session_start();
-    require 'ConnexionBD.php';
-    $bdd = ConnexionBD::getInstance();
-    if(isset($_POST['login'])){
-        if(!empty($_POST['username']) && !empty($_POST['password'])){
-            $username = htmlspecialchars($_POST['username']);
-            $password = sha1(htmlspecialchars($_POST['password']));
-            $req = $bdd->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
-            $req->execute(array($username, $password));
-            if(($req->rowCount())== 1){
-                $user = $req->fetch(PDO::FETCH_ASSOC);
-                $_SESSION['id'] = $user['id'];
-                $_SESSION['username'] = $user['username'];
-                $_Session['password'] = $user['password'];
-                header('Location: index.php');
-            }else{
-                echo "Username ou mot de passe incorrect";
-            }
-            
-        }
-    }
-       
-
-
+    require 'loginFunctions.php';
+    checkLoggedIn();
+    attemptLogin("users", "home.php");
 ?>
 
 <!DOCTYPE html>
@@ -54,6 +33,12 @@ session_start();
                 </div>
                 <div class="signup-link">
                     Not a member? <a href="register.php">Signup now</a>
+                </div>
+                <div class="signup-link">
+                    <a href="adminLogin.php">Login as Admin</a>
+                </div>
+                <div class="signup-link">
+                    <a href="index.html">Acceuil</a>
                 </div>
             </form>
         </div>

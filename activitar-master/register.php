@@ -16,12 +16,13 @@ session_start();
                 if(($req->rowCount()) == 0){
                     $req = $bdd->prepare("INSERT INTO users(fullname, username, email, phone, password) VALUES(?, ?, ?, ?, ?)");
                     $req->execute(array($fullname, $username, $email, $phone, $password));
-                    echo "Votre compte a été crée avec succès";
+                    
+                    header('Location: login.php');
                 }else{
-                    echo "Username ou email déjà utilisé";
+                    echo "<script>alert('Username ou email déjà utilisé'</script>)";
                 }
             }else{
-                echo "Les mots de passe ne correspondent pas";
+                echo "<script>alert('Les mots de passe ne correspondent pas')</script>";
             }
         }
     
@@ -77,7 +78,9 @@ session_start();
                 </div>
                 <div class="login-link">
                     Already have an account? <a href="login.php">Login now</a>
-                    
+                </div>
+                <div class="login-link">
+                    <a href="index.html">Acceuil</a>
                 </div>
             </form>
         </div>
