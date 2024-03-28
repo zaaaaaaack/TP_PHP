@@ -2,8 +2,8 @@
 <?php
 session_start();
 include_once '../autoload.php';
-$usersrepository=new UsersRepository();
-$clients=$usersrepository->getAll();
+$formrepository=new formRepository();
+$texts=$formrepository->getAll();
 ?>
 
 
@@ -21,47 +21,38 @@ $clients=$usersrepository->getAll();
     <div class="container">
         <!-- Sidebar Begins -->
         <?php
-        $firstlink = "../contactform/findex.php";
-        $secondlink= "cindex.php";
+        $firstlink = "findex.php";
+        $secondlink= "../clients/cindex.php";
         $thirdtlink= "#";
         $lasttlink= "../logout.php";
         include '../sidebar.php'; ?>
         <!-- Sidebar Ends -->
         <div class="main">
         <div class="container"></div>
-    <h2>List of clients</h2>
-    <a href="create.php" class="btn btn-danger" role="button">New Client</a>
+    <h2>Your Messages</h2>
     <br>
     <table class="table">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Full name</th>
-                <th>Username</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Password</th>
-                <th>Created at</th>
+                <th>User Name</th>
+                <th>User Email</th>
+                <th>Message</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
-
             <?php
-            
-            foreach($clients as $client){
+            foreach($texts as $text){
             ?>
             <tr>
             <tr>
-                <td><?= $client->id ?></td>
-                <td><?= $client->full_name ?></td>
-                <td><?= $client->username ?></td>
-                <td><?= $client->email ?></td>
-                <td><?= $client->phone ?></td>
-                <td><?= $client->password ?></td>
-                <td><?= $client->created_at ?></td>
+                <td><?= $text->id ?></td>
+                <td><?= $text->name ?></td>
+                <td><?= $text->email ?></td>
+                <td><?= $text->message ?></td>
                 <td>
-                    <a href="delete.php?id=<?= $client->id; ?>" class="btn btn-danger btn-sm">Delete</a>
+                    <a href="delete.php?id=<?= $text->id; ?>" class="btn btn-danger btn-sm">Delete</a>
                 </td>
             </tr>
 
