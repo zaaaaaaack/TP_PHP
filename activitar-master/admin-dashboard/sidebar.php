@@ -12,7 +12,7 @@
                 <li class="sidebar-item">
                     <a href="<?php echo $firstlink?>" class="sidebar-link">
                         <i class="lni lni-user"></i>
-                        <span>Profile</span>
+                        <span>Inbox</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
@@ -24,7 +24,7 @@
                 <li class="sidebar-item">
                     <a href="<?php echo $thirdtlink?>" class="sidebar-link">
                         <i class="lni lni-cart-full"></i>
-                        <span>Shop</span>
+                        <span>Stock</span>
                     </a>
                 </li>
             </ul>
