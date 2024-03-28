@@ -2,10 +2,8 @@
 <?php
 session_start();
 include_once '../autoload.php';
-$bdd=ConnexionBD::getInstance();
-$query="SELECT * FROM clients";
-$response=$bdd->query($query);
-$clients=$response->fetchAll( PDO::FETCH_ASSOC);
+$usersrepository=new UsersRepository();
+$clients=$usersrepository->getAll();
 ?>
 
 
@@ -81,18 +79,19 @@ $clients=$response->fetchAll( PDO::FETCH_ASSOC);
             foreach($clients as $client){
             ?>
             <tr>
-                <td><?php echo $client["id"]?></td>
-                <td><?php echo $client["full_name"]?></td>
-                <td><?php echo $client["username"]?></td>
-                <td><?php echo $client["email"]?></td>
-                <td><?php echo $client["phone"]?></td>
-                <td><?php echo $client["password"]?></td>
-                <td><?php echo $client["created_at"]?></td>
+            <tr>
+                <td><?= $client->id ?></td>
+                <td><?= $client->full_name ?></td>
+                <td><?= $client->username ?></td>
+                <td><?= $client->email ?></td>
+                <td><?= $client->phone ?></td>
+                <td><?= $client->password ?></td>
+                <td><?= $client->created_at ?></td>
                 <td>
-                <a href="delete.php?id=<?php echo $client['id']; ?>" class="btn btn-danger btn-sm">Delete</a>
-
-
+                    <a href="delete.php?id=<?= $client->id; ?>" class="btn btn-danger btn-sm">Delete</a>
                 </td>
+            </tr>
+
             </tr>
             <?php } ?>
         </tbody>

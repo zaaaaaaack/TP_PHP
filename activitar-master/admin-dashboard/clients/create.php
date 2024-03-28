@@ -1,48 +1,24 @@
 <?php
 session_start();
 include_once '../autoload.php';
-$bdd=ConnexionBD::getInstance();
+$usersrepository=new UsersRepository();
 
-$fullname="";
-$username="";
-$email="";
-$phone="";
-$password="";
-$errorMessage="";
-$successMessage="";
+$fullname = "";
+$username = "";
+$email = "";
+$phone = "";
+$password = "";
+$errorMessage = "";
+$successMessage = "";
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $fullname = $_POST["fullname"];
     $username = $_POST["username"];
     $email = $_POST["email"];
     $phone = $_POST["phone"];
     $password = $_POST["password"];
-    do {
-        if (empty($fullname) || empty($username) || empty($email) || empty($phone) || empty($password)) {
-            $errorMessage = "All the fields are required";
-            break;
-        }
 
-
-        //add to data base
-        $sql="INSERT INTO clients(full_name, username, email, phone, password)".
-        " VALUES('$fullname', '$username', '$email', '$phone', '$password')";
-        $result=$bdd->query($sql);
-        if(!$result){
-            $errorMessage="Error while saving the client";
-            break;
-        }
-
-        $fullname="";
-        $username="";
-        $email="";
-        $phone="";
-        $password="";
-
-        $successMessage="Client added successfully!";
-        header("location: cindex.php");
-        exit;
-
-    } while (false);
+    list($errorMessage, $successMessage) = $usersrepository->addClient($fullname, $username, $email, $phone, $password);
 }
 ?>
 
