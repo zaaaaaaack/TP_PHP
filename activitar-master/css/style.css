@@ -3118,3 +3118,201 @@ ol {
 		left: 15%;
 	}
 }
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+h5 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #1d1d1d;
+}
+
+h6 {
+  color: #d8d8d8;
+}
+
+hr {
+  width: 30px;
+  height: 2px;
+  background-color: #fb774b;
+}
+.section-p1 {
+padding: 40px 80px;
+}
+#products{
+  background-color: rgb(18, 18, 18);
+  color: rgb(255, 255, 255); /* Setting text color to contrast with the black background */
+  padding: 20px;
+}
+#mproducts {
+  text-align: center;
+}
+#mproducts .pro-container{
+  display:flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  flex-wrap: wrap;
+}
+#mproducts .pro {
+  background-color: #000000;
+  width: 23% ;
+  min-width: 250px;
+  padding: 10px 20px;
+  border: 3px solid rgb(102, 10, 10);
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+  margin: 15px 0;
+  transition : 0.2s ease;
+  position: relative;
+}
+#mproducts .pro:hover{
+  box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.06);
+}
+
+#mproducts .pro img{
+  width: 100%;
+  border-radius:20px ;
+
+}
+#mproducts .pro .des{
+  text-align: start;
+  padding: 10px 0;
+}
+#mproducts .pro .des span{
+  color: rgb(138, 20, 20);
+  font-size: 12px;
+}
+#mproducts .pro .des h5{
+  padding-top: 7px;
+  color: #ffffff;
+  font-size: 14px;
+}
+#mproducts .pro .des i{
+  font-size: 17px;
+  color:rgb(225, 181, 24);
+}
+#mproducts .pro .des h4{
+  padding-top: 7px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #088178;
+}
+#mproducts .pro .cart{
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50px;
+  background-color: rgb(102, 10, 10);
+  font-weight: 500;
+  color: #290202;
+  border:1px solid #290202;
+  position: absolute;
+  bottom:20px;
+  right: 10px;
+
+}
+
+/*single prod*/
+#prodetails .single-pro-image{
+  width: 30%;
+  margin-right: 50px;
+
+}
+.small-img-group{
+  padding-top: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+.small-img-col{
+  flex-basis: 24%;
+  cursor:pointer;
+}
+
+#prodetails{
+  display: flex;
+  margin-top: 20px;
+}
+#prodetails .single-pro-details{
+  width: 50%;
+  padding-top:30px;
+}
+#prodetails .single-pro-details h4{
+  padding: 40px 0 20px 0;
+}
+#prodetails .single-pro-details h2{
+  font-size: 26px;
+}
+#prodetails .single-pro-details select{
+  display:block;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+}
+#prodetails .single-pro-details select:focus {
+  outline: none;
+}
+#prodetails .single-pro-details input{
+  width: 50px;
+  height: 47px;
+  padding-left: 10px;
+  font-size: 16px;
+  margin-right:10px;
+}
+#prodetails .single-pro-details input:focus {
+  outline: none;
+}
+#prodetails .single-pro-details button{
+  background-color: rgb(138, 20, 20) ;
+  color: rgb(255, 255, 255);
+}
+
+/* Styling the button with class "normal" */
+.normal {
+  border: none;
+  padding: 10px 20px; /* Padding around the text */
+  text-align: center; /* Center-align the text */
+  text-decoration: none; /* Remove default text decoration */
+  display: inline-block;
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+  transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition for background color and box shadow */
+}
+
+/* Hover effect */
+.normal:hover {
+  background-color: #3f0909; /* Darker green on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Increase shadow on hover */
+}
+#prodetails .single-pro-details span {
+  line-height: 25px;
+}
