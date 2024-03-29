@@ -1,48 +1,24 @@
 <?php
 session_start();
 include_once '../autoload.php';
-$bdd=ConnexionBD::getInstance();
+$usersrepository=new UsersRepository();
 
-$fullname="";
-$username="";
-$email="";
-$phone="";
-$password="";
-$errorMessage="";
-$successMessage="";
+$fullname = "";
+$username = "";
+$email = "";
+$phone = "";
+$password = "";
+$errorMessage = "";
+$successMessage = "";
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $fullname = $_POST["fullname"];
     $username = $_POST["username"];
     $email = $_POST["email"];
     $phone = $_POST["phone"];
     $password = $_POST["password"];
-    do {
-        if (empty($fullname) || empty($username) || empty($email) || empty($phone) || empty($password)) {
-            $errorMessage = "All the fields are required";
-            break;
-        }
 
-
-        //add to data base
-        $sql="INSERT INTO clients(full_name, username, email, phone, password)".
-        " VALUES('$fullname', '$username', '$email', '$phone', '$password')";
-        $result=$bdd->query($sql);
-        if(!$result){
-            $errorMessage="Error while saving the client";
-            break;
-        }
-
-        $fullname="";
-        $username="";
-        $email="";
-        $phone="";
-        $password="";
-
-        $successMessage="Client added successfully!";
-        header("location: cindex.php");
-        exit;
-
-    } while (false);
+    list($errorMessage, $successMessage) = $usersrepository->addClient($fullname, $username, $email, $phone, $password);
 }
 ?>
 
@@ -63,39 +39,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <div class="container">
         <!-- Sidebar Begins -->
-        <aside id="sidebar">
-            <input type="checkbox" name="" id="toggler">
-            <label for="toggler" class="toggle-btn">
-                <i class="lni lni-grid-alt"></i>
-                <span>esm</span>
-            </label>
-            <ul class="sidebar-nav">
-                <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
-                        <i class="lni lni-user"></i>
-                        <span>Profile</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
-                        <i class="lni lni-customer"></i>
-                        <span>Clients</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
-                        <i class="lni lni-cart-full"></i>
-                        <span>Shop</span>
-                    </a>
-                </li>
-            </ul>
-            <div class="sidebar-footer">
-                <a href="#" class="sidebar-link">
-                    <i class="lni lni-exit"></i>
-                    <span>Logout</span>
-                </a>
-            </div>
-        </aside>
+        <?php
+        $firstlink = "../contactform/findex.php";
+        $secondlink= "cindex.php";
+        $thirdtlink= "#";
+        $lasttlink= "../logout.php";
+        include '../sidebar.php'; ?>
         <!-- Sidebar Ends -->
         <div class="main">
         <div class=" my-5">

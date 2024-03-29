@@ -576,10 +576,10 @@
             </div>
             <div class="map-contact-form">
                 <h5>Contact Us</h5>
-                <form action="#">
-                    <input type="text" placeholder="Name">
-                    <input type="text" class="phone" placeholder="Phone">
-                    <textarea placeholder="Message"></textarea>
+                <form action="admin-dashboard/contactform/formhandler.php"  method="post">
+                    <input type="text" placeholder="Name"  name="name" required />
+                    <input type="text" class="email" placeholder="email"  name="email" required />
+                    <textarea placeholder="Message"  name="message"  required></textarea>
                     <button type="submit" class="site-btn">Submit Now</button>
                 </form>
             </div>
