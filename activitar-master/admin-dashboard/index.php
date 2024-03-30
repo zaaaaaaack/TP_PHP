@@ -1,5 +1,7 @@
 <?php
-
+require_once "../loginFunctions.php";
+checkNotLoggedIn();
+checkLoggedInAsUser();
 
  ?>
 
@@ -20,7 +22,7 @@
         <!-- Sidebar Begins -->
         <?php 
         $firstlink = "contactform/findex.php";
-        $secondlink= "users/cindex.php";
+        $secondlink= "clients/cindex.php";
         $thirdtlink= "#";
         $lasttlink = '../deconnexion.php';
         include 'sidebar.php'; ?>

@@ -3,7 +3,8 @@ session_start();
     require 'ConnexionBD.php';
     require 'loginFunctions.php';
     $bdd = ConnexionBD::getInstance();
-    checkLoggedIn();
+    checkLoggedInAsUser();
+    checkLoggedInAsAdmin();
 
     if(isset($_POST['signup'])){
         if(!empty($_POST['fullname']) && !empty($_POST['username']) && !empty($_POST['email']) && !empty($_POST['phone']) && !empty($_POST['password']) && !empty($_POST['password2'])){
@@ -83,7 +84,7 @@ session_start();
                     Already have an account? <a href="login.php">Login now</a>
                 </div>
                 <div class="login-link">
-                    <a href="index.html">Acceuil</a>
+                    <a href="index.php">Acceuil</a>
                 </div>
             </form>
         </div>

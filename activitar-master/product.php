@@ -61,7 +61,7 @@ if (isset($_GET['id'])) {
     <header class="header-section">
         <div class="container-fluid" style="display: flex;">
             <div class="logo">
-                <a href="./index.html">
+                <a href="./index.php">
                     <img src="img/logo.png" alt="">
                 </a>
             </div>
@@ -69,7 +69,7 @@ if (isset($_GET['id'])) {
                 <div class="nav-menu">
                     <nav class="mainmenu mobile-menu">
                         <ul>
-                            <li><a href="./index.html">Home</a></li>
+                            <li><a href="./index.php">Home</a></li>
                             <li><a href="./about-us.html">About us</a></li>
                             <li><a href="./schedule.html">Schedule</a></li>
                             <li><a href="./gallery.html">Gallery</a></li>

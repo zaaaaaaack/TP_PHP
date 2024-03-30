@@ -1,5 +1,7 @@
-    <?php
-
+<?php
+require_once "../../loginFunctions.php";
+checkLoggedInAsUser();
+checkNotLoggedIn();
     
 
 

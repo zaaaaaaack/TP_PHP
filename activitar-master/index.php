@@ -1,4 +1,8 @@
 <?php 
+session_start();
+require 'loginFunctions.php';
+checkLoggedInAsUser();
+checkLoggedInAsAdmin();
     
     
 ?>

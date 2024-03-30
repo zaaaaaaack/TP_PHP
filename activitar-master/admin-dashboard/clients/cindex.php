@@ -1,6 +1,9 @@
 
 <?php
 include_once '../autoload.php';
+require_once "../../loginFunctions.php";
+checkLoggedInAsUser();
+checkNotLoggedIn();
 
 
 

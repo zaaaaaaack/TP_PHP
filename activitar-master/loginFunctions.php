@@ -37,23 +37,47 @@ function attemptLogin($tableName, $redirectPage) {
         }
     }
 }
-function checkLoggedIn() {
+function checkLoggedInAsAdmin() {
+    if(session_status() !== PHP_SESSION_ACTIVE) {session_start();}
+    if(isset($_SESSION['adminUsername'])){
+        header("Location: admin-dashboard/index.php");
+        exit;
+    }
+}
+function checkLoggedInAsUser() {
     if(session_status() !== PHP_SESSION_ACTIVE) {session_start();}
     if(isset($_SESSION['username'])){
-        header("Location: ");
-        exit;
-    }elseif(isset($_SESSION['adminUsername'])){
-        $redirect = $_SERVER['DOCUMENT_ROOT'] . '/fork1/TP_PHP/activitar-master/admin-dashboard/index.php';
-        header("Location: {$redirect}");
-        exit;
+        $page =getcwd();
+        if(str_ends_with($page, "admin-dashboard")){
+            header("Location: ../home.php");
+            exit;
+        }
+        elseif(str_ends_with($page,"clients")||str_ends_with($page,"contactform")){
+            header("Location: ../../home.php");
+            exit;
+        }else{
+            header("Location: home.php");
+            exit;
+        }
     }
 }
 function checkNotLoggedIn() {
     if(session_status() !== PHP_SESSION_ACTIVE) {session_start();}
 
     if(!isset($_SESSION['username']) && !isset($_SESSION['adminUsername'])){
-        header("Location: {$_SERVER['DOCUMENT_ROOT']}/fork1/TP_PHP/activitar-master/login.php");
-        exit;
+        $page =getcwd();
+        if(str_ends_with($page, "admin-dashboard")){
+            header("Location: ../login.php");
+            exit;
+        }elseif(str_ends_with($page,"clients")||str_ends_with($page,"contactform")){
+            header("Location: ../../login.php");
+            exit;
+        }
+        else{
+            header("Location: login.php");
+            exit;
+        }
+        
     }
 }
 ?>

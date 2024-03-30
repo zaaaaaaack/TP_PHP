@@ -1,4 +1,7 @@
 <?php
+require_once "../../loginFunctions.php";
+checkLoggedInAsUser();
+checkNotLoggedIn();
 
 include_once '../autoload.php';
 $formrepository=new FormRepository();

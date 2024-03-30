@@ -1,5 +1,8 @@
 <?php 
     session_start();
+    require 'loginFunctions.php';
+    checkNotLoggedIn();
+    checkLoggedInAsAdmin();
 
 
     echo "Hello {$_SESSION['username']} vous êtes connecté";
