@@ -1,7 +1,6 @@
 <?php
 session_start();
-require 'loginFunctions.php';
-checkNotLoggedIn();
+
 
 $_SESSION = array();
 session_destroy();

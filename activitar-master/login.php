@@ -1,8 +1,5 @@
 <?php 
-    require 'loginFunctions.php';
-
-    checkLoggedIn();
-    
+    require_once 'loginFunctions.php';
     attemptLogin("users", "home.php");
 ?>
 

@@ -1,6 +1,5 @@
 <?php 
-    require 'loginFunctions.php';
-    checkLoggedIn();
+    
     
 ?>
 

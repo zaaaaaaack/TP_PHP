@@ -1,7 +1,5 @@
 <?php 
-    require 'loginFunctions.php';
-    checkNotLoggedIn();
-    checkLoggedIn();
+    
     echo "Welcome Admin, {$_SESSION['adminUsername']} ";
    /*
    This is the admin home page 

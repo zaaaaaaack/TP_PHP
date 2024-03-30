@@ -40,11 +40,11 @@ function attemptLogin($tableName, $redirectPage) {
 function checkLoggedIn() {
     if(session_status() !== PHP_SESSION_ACTIVE) {session_start();}
     if(isset($_SESSION['username'])){
-        header("Location: {$_SERVER['DOCUMENT_ROOT']}/fork1/TP_PHP/activitar-master/.php");
+        header("Location: ");
         exit;
     }elseif(isset($_SESSION['adminUsername'])){
         $redirect = $_SERVER['DOCUMENT_ROOT'] . '/fork1/TP_PHP/activitar-master/admin-dashboard/index.php';
-        header("Location: $redirect");
+        header("Location: {$redirect}");
         exit;
     }
 }
