@@ -6,11 +6,11 @@ class Usersrepository extends Repository{
     
 
     public function __construct(){
-        parent::__construct('clients');
+        parent::__construct('users');
     }
 
 
-    public function addClient($fullname, $username, $email, $phone, $password) {
+    public function adduser($fullname, $username, $email, $phone, $password) {
         $errorMessage = "";
         $successMessage = "";
 
@@ -21,16 +21,16 @@ class Usersrepository extends Repository{
             }
 
             // Add to database
-            $sql = "INSERT INTO clients(full_name, username, email, phone, password)" .
+            $sql = "INSERT INTO users(fullname, username, email, phone, password)" .
                 " VALUES(?, ?, ?, ?, ?)";
             $result = $this->bdd->prepare($sql);
             $result->execute([$fullname, $username, $email, $phone, $password]);
             if (!$result) {
-                $errorMessage = "Error while saving the client";
+                $errorMessage = "Error while saving the user";
                 break;
             }
 
-            $successMessage = "Client added successfully!";
+            $successMessage = "user added successfully!";
             header("location: cindex.php");
             exit;
         } while (false);

@@ -1,4 +1,7 @@
 <?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/fork1/TP_PHP/activitar-master/loginFunctions.php';
+
+checkNotLoggedIn();
 
 ?>
 
@@ -18,7 +21,7 @@
                 <li class="sidebar-item">
                     <a href="<?php echo $secondlink?>" class="sidebar-link">
                         <i class="lni lni-customer"></i>
-                        <span>Clients</span>
+                        <span>users</span>
                     </a>
                 </li>
                 <li class="sidebar-item">

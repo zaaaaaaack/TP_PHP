@@ -1,5 +1,7 @@
 <?php
-session_start();
+require_once $_SERVER['DOCUMENT_ROOT'] . '/fork1/TP_PHP/activitar-master/loginFunctions.php';
+
+checkNotLoggedIn();
 include_once '../autoload.php';
 $formrepository=new FormRepository();
 
@@ -14,6 +16,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         die("Connection failed: " . $e->getMessage());
     }
 }else{
-    header("Location:../../index.html");
+    header("Location:../../index.php");
 }
 

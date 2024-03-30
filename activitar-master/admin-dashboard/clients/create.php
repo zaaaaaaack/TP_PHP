@@ -1,5 +1,9 @@
 <?php
-session_start();
+
+require_once $_SERVER['DOCUMENT_ROOT'] . '/fork1/TP_PHP/activitar-master/loginFunctions.php';
+
+
+checkNotLoggedIn();
 include_once '../autoload.php';
 $usersrepository=new UsersRepository();
 
@@ -18,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $phone = $_POST["phone"];
     $password = $_POST["password"];
 
-    list($errorMessage, $successMessage) = $usersrepository->addClient($fullname, $username, $email, $phone, $password);
+    list($errorMessage, $successMessage) = $usersrepository->adduser($fullname, $username, $email, $phone, $password);
 }
 ?>
 
@@ -34,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
-    <title>New Client</title>
+    <title>New user</title>
 </head>
 <body>
     <div class="container">
@@ -43,12 +47,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $firstlink = "../contactform/findex.php";
         $secondlink= "cindex.php";
         $thirdtlink= "#";
-        $lasttlink= "../logout.php";
+        $lasttlink = "../../deconnexion.php";
         include '../sidebar.php'; ?>
         <!-- Sidebar Ends -->
         <div class="main">
         <div class=" my-5">
-        <h2>New Client: </h2>
+        <h2>New user: </h2>
         <br> <br> <br>
         <?php
          if (!empty($errorMessage)) { 

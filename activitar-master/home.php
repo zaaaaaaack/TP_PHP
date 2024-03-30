@@ -1,6 +1,8 @@
 <?php 
     require 'loginFunctions.php';
     checkNotLoggedIn();
+    checkLoggedIn();
+
     echo "Hello {$_SESSION['username']} vous êtes connecté";
     /**This is the user's home page where the user
      * interface would be displayed

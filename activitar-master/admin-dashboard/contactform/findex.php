@@ -1,6 +1,10 @@
 
 <?php
-session_start();
+require_once $_SERVER['DOCUMENT_ROOT'] . '/fork1/TP_PHP/activitar-master/loginFunctions.php';
+
+
+checkNotLoggedIn();
+
 include_once '../autoload.php';
 $formrepository=new formRepository();
 $texts=$formrepository->getAll();
@@ -24,7 +28,7 @@ $texts=$formrepository->getAll();
         $firstlink = "findex.php";
         $secondlink= "../clients/cindex.php";
         $thirdtlink= "#";
-        $lasttlink= "../logout.php";
+        $lasttlink = "../../deconnexion.php";
         include '../sidebar.php'; ?>
         <!-- Sidebar Ends -->
         <div class="main">

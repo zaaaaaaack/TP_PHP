@@ -1,5 +1,8 @@
 <?php
-    session_start();
+require_once $_SERVER['DOCUMENT_ROOT'] . '/fork1/TP_PHP/activitar-master/loginFunctions.php';
+
+checkNotLoggedIn();
+
     include_once '../autoload.php';
     $bdd=ConnexionBD::getInstance();
 

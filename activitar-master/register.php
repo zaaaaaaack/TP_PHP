@@ -1,7 +1,10 @@
 <?php 
 session_start();
     require 'ConnexionBD.php';
+    require 'loginFunctions.php';
     $bdd = ConnexionBD::getInstance();
+    checkLoggedIn();
+
     if(isset($_POST['signup'])){
         if(!empty($_POST['fullname']) && !empty($_POST['username']) && !empty($_POST['email']) && !empty($_POST['phone']) && !empty($_POST['password']) && !empty($_POST['password2'])){
             $fullname = htmlspecialchars($_POST['fullname']);

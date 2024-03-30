@@ -1,4 +1,3 @@
-
 <?php
 function attemptLogin($tableName, $redirectPage) {
 
@@ -29,6 +28,7 @@ function attemptLogin($tableName, $redirectPage) {
                     $_SESSION['adminUsername'] = $user['username'];
                 }
                 header("Location: $redirectPage");
+                exit;
             } else {
                 echo "<script>alert('Username ou mot de passe incorrect')</script>";
             }
@@ -38,17 +38,22 @@ function attemptLogin($tableName, $redirectPage) {
     }
 }
 function checkLoggedIn() {
-    session_start();
+    if(session_status() !== PHP_SESSION_ACTIVE) {session_start();}
     if(isset($_SESSION['username'])){
-        header("Location: home.php");
+        header("Location: {$_SERVER['DOCUMENT_ROOT']}/fork1/TP_PHP/activitar-master/.php");
+        exit;
     }elseif(isset($_SESSION['adminUsername'])){
-        header("Location: adminHome.php");
+        $redirect = $_SERVER['DOCUMENT_ROOT'] . '/fork1/TP_PHP/activitar-master/admin-dashboard/index.php';
+        header("Location: $redirect");
+        exit;
     }
 }
 function checkNotLoggedIn() {
-    session_start();
+    if(session_status() !== PHP_SESSION_ACTIVE) {session_start();}
+
     if(!isset($_SESSION['username']) && !isset($_SESSION['adminUsername'])){
-        header("Location: login.php");
+        header("Location: {$_SERVER['DOCUMENT_ROOT']}/fork1/TP_PHP/activitar-master/login.php");
+        exit;
     }
 }
 ?>

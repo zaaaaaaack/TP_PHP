@@ -1,3 +1,12 @@
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/fork1/TP_PHP/activitar-master/loginFunctions.php';
+
+
+    checkNotLoggedIn();
+
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,9 +24,9 @@
         <!-- Sidebar Begins -->
         <?php 
         $firstlink = "contactform/findex.php";
-        $secondlink= "clients/cindex.php";
+        $secondlink= "users/cindex.php";
         $thirdtlink= "#";
-        $lasttlink= "logout.php";
+        $lasttlink = '../deconnexion.php';
         include 'sidebar.php'; ?>
         <!-- Sidebar Ends -->
         <div class="main">

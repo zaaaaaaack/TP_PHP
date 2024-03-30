@@ -1,3 +1,9 @@
+<?php 
+    require 'loginFunctions.php';
+    checkLoggedIn();
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

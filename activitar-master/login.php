@@ -1,6 +1,8 @@
 <?php 
     require 'loginFunctions.php';
+
     checkLoggedIn();
+    
     attemptLogin("users", "home.php");
 ?>
 
