@@ -87,11 +87,9 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div id="mobile-menu-wrap"></div>
         </div>
     </header>
-   
 
-    <section id="products" >
-  
-        <?php
+    <!-- Producs' section begins -->
+    <?php
         $men_products = [];
         $women_products = [];
         $supplements = [];
@@ -105,18 +103,21 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 $supplements[] = $product;
             }
         }
+    ?>
 
-        // Display men's products first
-        foreach ($men_products as $product):
-        ?>
-        <section class="section-p1">
+    <section id="products" >
+        <section id="mproducts" class="section-p1">
             <hr>
-            <h2><?=$product['category']?></h2>
-            <a href="product.php?id=<?=$product['id']?>" class="product">
-                <div class="pro-container">
-                    <div class="pro">
+            <h2>Men's Sportwear</h2>
+            <div class="pro-container">
+    <?php
+    // Display men's products first
+    foreach ($men_products as $product):
+    ?>
+            
+            <div class="pro">
+            <a href="product.php?id=<?=$product['id']?>"><img src="imgs/<?=$product['img']?>" alt=""></a>
                         <div class ="des">
-                            <img src="imgs/<?=$product['img']?>" alt="">
                             <span>admiral</span>
                             <h5><?=$product['name']?></h5>
                             <div class="star">
@@ -128,25 +129,25 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             </div>
                             <h4>&dollar;<?=$product['price']?></h4>
                         </div>
-                        
-                    </div>
-                    <a href="product.php?id=1"><i class="fal fa-shopping-cart cart"></i></a>
-                </div>
-            </a>
+            <a href="product.php?id=<?=$product['id']?>"><i class="fal fa-shopping-cart cart"></i></a>
+    <?php
+    endforeach;
+    ?>
+            </div>
         </section>
-        <?php
-        endforeach;
 
-        // Display women's products next
-        foreach ($women_products as $product):
-        ?>
-        <section class="section-p1">
-            <h2><?=$product['category']?></h2>
-            <a href="product.php?id=<?=$product['id']?>" class="product">
-                <div class="pro-container">
-                    <div class="pro">
-                        <div class ="des">    
-                            <img src="imgs/<?=$product['img']?>" alt="">
+
+        <section id="mproducts" class="section-p1">
+            <hr>
+            <h2>Women's Sportwear</h2>
+            <div class="pro-container">
+    <?php
+    // Display women's products next 
+    foreach ($women_products as $product):
+    ?>
+            <div class="pro">
+            <a href="product.php?id=<?=$product['id']?>"><img src="imgs/<?=$product['img']?>" alt=""></a>
+                        <div class ="des">
                             <span>admiral</span>
                             <h5><?=$product['name']?></h5>
                             <div class="star">
@@ -158,24 +159,24 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             </div>
                             <h4>&dollar;<?=$product['price']?></h4>
                         </div>
-                    </div>
-                    <a href="product.php?id=1"><i class="fal fa-shopping-cart cart"></i></a>
-                </div>
-            </a>
+            <a href="product.php?id=<?=$product['id']?>"><i class="fal fa-shopping-cart cart"></i></a>
+    <?php
+    endforeach;
+    ?>
+            </div>
         </section>
-        <?php
-        endforeach;
 
-        // Display supplements
-        foreach ($supplements as $product):
-        ?>
-        <section class="section-p1">
-            <h2><?=$product['category']?></h2>
-            <a href="product.php?id=<?=$product['id']?>" class="product">
-                <div class="pro-container">
-                    <div class="pro">
+        <section id="mproducts" class="section-p1">
+            <hr>
+            <h2>supplements</h2>
+            <div class="pro-container">
+    <?php
+    // Display supplements finally
+    foreach ($supplements as $product):
+    ?>
+            <div class="pro">
+            <a href="product.php?id=<?=$product['id']?>"><img src="imgs/<?=$product['img']?>" alt=""></a>
                         <div class ="des">
-                            <img src="imgs/<?=$product['img']?>" alt="">
                             <span>admiral</span>
                             <h5><?=$product['name']?></h5>
                             <div class="star">
@@ -186,20 +187,14 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 <i class="fas fa-star"></i>
                             </div>
                             <h4>&dollar;<?=$product['price']?></h4>
-                         </div>    
-                    </div>
-                    <a href="product.php?id=1"><i class="fal fa-shopping-cart cart"></i></a>
-                </div>
-            </a>
+                        </div>
+            <a href="product.php?id=<?=$product['id']?>"><i class="fal fa-shopping-cart cart"></i></a>
+    <?php
+    endforeach;
+    ?>
+            </div>
         </section>
-        <?php
-        endforeach;
-        ?>
-    </div>
-
-
-
-
+    </section>
 
 
  <!-- Footer Section Begin -->
