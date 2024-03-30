@@ -16,7 +16,7 @@ class Repository{
         $sql="SELECT * from ".$this->tablename;
         $result=$this->bdd->prepare ($sql); 
         $result->execute ([]);
-        return $clients=$result->fetchAll(PDO :: FETCH_OBJ);
+        return $users=$result->fetchAll(PDO :: FETCH_OBJ);
     }
 
 }

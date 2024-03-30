@@ -1,6 +1,7 @@
 <?php 
-    require 'loginFunctions.php';
-    checkLoggedIn();
+    require_once 'loginFunctions.php';
+    checkLoggedInAsUser();
+    checkLoggedInAsAdmin();
     attemptLogin("users", "home.php");
 ?>
 
@@ -38,7 +39,7 @@
                     <a href="adminLogin.php">Login as Admin</a>
                 </div>
                 <div class="signup-link">
-                    <a href="index.html">Acceuil</a>
+                    <a href="index.php">Acceuil</a>
                 </div>
             </form>
         </div>

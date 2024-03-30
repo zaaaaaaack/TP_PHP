@@ -1,7 +1,7 @@
 <?php
-    require 'loginFunctions.php';
-    checkLoggedIn();
-    attemptLogin("admin", "adminHome.php");
+    
+    require "./loginFunctions.php";
+    attemptLogin("admin", "admin-dashboard/index.php");
 ?>
 
 <html>

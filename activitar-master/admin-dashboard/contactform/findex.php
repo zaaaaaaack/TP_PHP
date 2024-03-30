@@ -1,6 +1,9 @@
 
 <?php
-session_start();
+require_once "../../loginFunctions.php";
+checkLoggedInAsUser();
+checkNotLoggedIn();
+
 include_once '../autoload.php';
 $formrepository=new formRepository();
 $texts=$formrepository->getAll();
@@ -24,8 +27,8 @@ $texts=$formrepository->getAll();
         $firstlink = "findex.php";
         $secondlink= "../clients/cindex.php";
         $thirdtlink= "#";
-        $lasttlink= "../logout.php";
-        include '../sidebar.php'; ?>
+        $lasttlink = "../../deconnexion.php";
+        require '../sidebar.php'; ?>
         <!-- Sidebar Ends -->
         <div class="main">
         <div class="container"></div>

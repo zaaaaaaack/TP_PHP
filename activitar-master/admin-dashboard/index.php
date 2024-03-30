@@ -1,3 +1,10 @@
+<?php
+require_once "../loginFunctions.php";
+checkNotLoggedIn();
+checkLoggedInAsUser();
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +24,7 @@
         $firstlink = "contactform/findex.php";
         $secondlink= "clients/cindex.php";
         $thirdtlink= "#";
-        $lasttlink= "logout.php";
+        $lasttlink = '../deconnexion.php';
         include 'sidebar.php'; ?>
         <!-- Sidebar Ends -->
         <div class="main">

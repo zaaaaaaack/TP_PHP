@@ -1,4 +1,3 @@
-
 <?php
 function attemptLogin($tableName, $redirectPage) {
 
@@ -29,6 +28,7 @@ function attemptLogin($tableName, $redirectPage) {
                     $_SESSION['adminUsername'] = $user['username'];
                 }
                 header("Location: $redirectPage");
+                exit;
             } else {
                 echo "<script>alert('Username ou mot de passe incorrect')</script>";
             }
@@ -37,18 +37,47 @@ function attemptLogin($tableName, $redirectPage) {
         }
     }
 }
-function checkLoggedIn() {
-    session_start();
+function checkLoggedInAsAdmin() {
+    if(session_status() !== PHP_SESSION_ACTIVE) {session_start();}
+    if(isset($_SESSION['adminUsername'])){
+        header("Location: admin-dashboard/index.php");
+        exit;
+    }
+}
+function checkLoggedInAsUser() {
+    if(session_status() !== PHP_SESSION_ACTIVE) {session_start();}
     if(isset($_SESSION['username'])){
-        header("Location: home.php");
-    }elseif(isset($_SESSION['adminUsername'])){
-        header("Location: adminHome.php");
+        $page =getcwd();
+        if(str_ends_with($page, "admin-dashboard")){
+            header("Location: ../home.php");
+            exit;
+        }
+        elseif(str_ends_with($page,"clients")||str_ends_with($page,"contactform")){
+            header("Location: ../../home.php");
+            exit;
+        }else{
+            header("Location: home.php");
+            exit;
+        }
     }
 }
 function checkNotLoggedIn() {
-    session_start();
+    if(session_status() !== PHP_SESSION_ACTIVE) {session_start();}
+
     if(!isset($_SESSION['username']) && !isset($_SESSION['adminUsername'])){
-        header("Location: login.php");
+        $page =getcwd();
+        if(str_ends_with($page, "admin-dashboard")){
+            header("Location: ../login.php");
+            exit;
+        }elseif(str_ends_with($page,"clients")||str_ends_with($page,"contactform")){
+            header("Location: ../../login.php");
+            exit;
+        }
+        else{
+            header("Location: login.php");
+            exit;
+        }
+        
     }
 }
 ?>
