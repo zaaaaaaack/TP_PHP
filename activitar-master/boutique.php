@@ -97,11 +97,11 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $supplements = [];
 
         foreach ($products as $product) {
-            if ($product['categorie'] == "Men's sportswear") {
+            if ($product['category'] == "Men's sportswear") {
                 $men_products[] = $product;
-            } elseif ($product['categorie'] == "Women's sportswear") {
+            } elseif ($product['category'] == "Women's sportswear") {
                 $women_products[] = $product;
-            } elseif ($product['categorie'] == "Supplements") {
+            } elseif ($product['category'] == "Supplements") {
                 $supplements[] = $product;
             }
         }
@@ -111,7 +111,7 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
         ?>
         <section class="section-p1">
             <hr>
-            <h2><?=$product['categorie']?></h2>
+            <h2><?=$product['category']?></h2>
             <a href="product.php?id=<?=$product['id']?>" class="product">
                 <div class="pro-container">
                     <div class="pro">
@@ -141,7 +141,7 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
         foreach ($women_products as $product):
         ?>
         <section class="section-p1">
-            <h2><?=$product['categorie']?></h2>
+            <h2><?=$product['category']?></h2>
             <a href="product.php?id=<?=$product['id']?>" class="product">
                 <div class="pro-container">
                     <div class="pro">
@@ -170,7 +170,7 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
         foreach ($supplements as $product):
         ?>
         <section class="section-p1">
-            <h2><?=$product['categorie']?></h2>
+            <h2><?=$product['category']?></h2>
             <a href="product.php?id=<?=$product['id']?>" class="product">
                 <div class="pro-container">
                     <div class="pro">

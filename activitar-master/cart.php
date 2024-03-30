@@ -1,4 +1,8 @@
 <?php
+session_start();
+include 'bd_boutique.php';
+$pdo = pdo_connect_mysql();
+
 // If the user clicked the add to cart button on the product page we can check for the form data
 if (isset($_POST['product_id'], $_POST['quantity']) && is_numeric($_POST['product_id']) && is_numeric($_POST['quantity'])) {
     // Set the post variables so we easily identify them, also make sure they are integer
@@ -26,7 +30,7 @@ if (isset($_POST['product_id'], $_POST['quantity']) && is_numeric($_POST['produc
         }
     }
     // Prevent form resubmission...
-    header('location: index.php?page=cart');
+    header('location: cart.php');
     exit;
 }
 
@@ -51,10 +55,14 @@ if (isset($_POST['update']) && isset($_SESSION['cart'])) {
         }
     }
     // Prevent form resubmission...
-    header('location: index.php?page=cart');
+    header('location: cart.php');
     exit;
 }
 
+if (isset($_POST['placeorder']) && isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
+    header('Location: placeorder.php');
+    exit;
+}
 
 $products_in_cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
 $products = array();
@@ -166,7 +174,7 @@ if ($products_in_cart) {
     
     <div class="cart content-wrapper">
     <h1>Shopping Cart</h1>
-    <form action="index.php?page=cart" method="post">
+    <form action="cart.php?page=cart" method="post">
         <table>
             <thead>
                 <tr>
@@ -185,14 +193,14 @@ if ($products_in_cart) {
                 <?php foreach ($products as $product): ?>
                 <tr>
                     <td class="img">
-                        <a href="index.php?page=product&id=<?=$product['id']?>">
-                            <img src="imgs/<?=$product['img']?>" width="50" height="50" alt="<?=$product['name']?>">
+                        <a href="product.php?page=product&id=<?=$product['id']?>">
+                            <img src="imgs/<?=$product['img']?>"alt="<?=$product['name']?>">
                         </a>
                     </td>
                     <td>
-                        <a href="index.php?page=product&id=<?=$product['id']?>"><?=$product['name']?></a>
+                        <a href="product.php?page=product&id=<?=$product['id']?>"><?=$product['name']?></a>
                         <br>
-                        <a href="index.php?page=cart&remove=<?=$product['id']?>" class="remove">Remove</a>
+                        <a href="cart.php?page=cart&remove=<?=$product['id']?>" class="remove">Remove</a>
                     </td>
                     <td class="price">&dollar;<?=$product['price']?></td>
                     <td class="quantity">

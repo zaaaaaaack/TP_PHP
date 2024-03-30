@@ -1,5 +1,8 @@
 <?php
 // Check to make sure the id parameter is specified in the URL
+include 'bd_boutique.php';
+$pdo = pdo_connect_mysql();
+
 if (isset($_GET['id'])) {
     // Prepare statement and execute, prevents SQL injection
     $stmt = $pdo->prepare('SELECT * FROM products WHERE id = ?');
@@ -107,7 +110,7 @@ if (isset($_GET['id'])) {
         <span class="price">
             &dollar;<?=$product['price']?>
         </span>
-        <form action="index.php?page=cart" method="post">
+        <form action="cart.php" method="post">
             <input type="number" name="quantity" value="1" min="1" max="<?=$product['quantity']?>" placeholder="Quantity" required>
             <input type="hidden" name="product_id" value="<?=$product['id']?>">
             <input type="submit" value="Add To Cart">
