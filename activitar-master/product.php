@@ -20,11 +20,11 @@ if (isset($_GET['id'])) {
 }
 ?>
 
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="description" content="Activitar Template">
     <meta name="keywords" content="Activitar, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,25 +44,114 @@ if (isset($_GET['id'])) {
     <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+   
     <style>
+
+ 
+
+
+
+body {
+    background: #151515;
+	height: 100%;
+	font-family: "Nunito Sans", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+}
+
+
+
+
+
+
+        /* Apply styles to the container */
+        .containerrr {
+            padding-top: 160px; /* Add padding to the top of the container */
+        }
+
+
+
+
     h2{
-    color : white;
+    color : black;
     }
     hr {
   color: black;
 }
+
+      /* Apply styles to the product box */
+      .product {
+            display: flex;
+            padding: 20px;
+            border-radius: 15px;
+            background-color: #333;
+            color: #fff;
+            border: 4px solid #e4381C; /* Set the border size and color */
+        }
+
+        /* Apply styles to the product image */
+        .product img {
+            margin-right: 20px;
+            border-radius: 5px;
+        }
+
+        /* Apply styles to the product name */
+        .product .name {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        /* Apply styles to the product price */
+        .product .price {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #e4381C;
+        }
+
+        /* Apply styles to the Add to Cart button */
+        .product input[type="submit"] {
+            background-color: #e4381C;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        /* Apply styles to the Add to Cart button on hover */
+        .product input[type="submit"]:hover {
+            background-color: #ff6600;
+        }
+
+        /* Apply styles to the product description */
+        .product .description {
+            font-size: 16px;
+        }
+
+        /* Apply styles to the quantity input */
+        .product input[type="number"] {
+            width: 400px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    color: #555555;
+    border-radius: 5px;
+        }
+
+
     </style>
 </head>
 
 <body>
-    <!-- Page Preloder -->
-    <div id="preloder">
+   <!-- Page Preloder -->
+   <div id="preloder">
         <div class="loader"></div>
     </div>
 
     <!-- Header Section Begin -->
     <header class="header-section">
-        <div class="container-fluid" style="display: flex;">
+        <div style="display: flex;">
             <div class="logo">
                 <a href="./index.php">
                     <img src="img/logo.png" alt="">
@@ -76,7 +165,7 @@ if (isset($_GET['id'])) {
                             <li><a href="./about-us.html">About us</a></li>
                             <li><a href="./schedule.html">Schedule</a></li>
                             <li><a href="./gallery.html">Gallery</a></li>
-                            <li  class="active" ><a href="./e-boutique.html">Store</a></li>
+                            <li  ><a href="./e-boutique.html">Store</a></li>
                             <li><a href="./blog.html">Blog</a>
                                 <ul class="dropdown">
                                     <li><a href="./about-us.html">About Us</a></li>
@@ -98,28 +187,30 @@ if (isset($_GET['id'])) {
             <div id="mobile-menu-wrap"></div>
         </div>
     </header>
-<!-- Header End -->
+    <!-- Header Section End -->
 
-
-
-
-<div class="product content-wrapper">
-    <img src="imgs/<?=$product['img']?>" width="500" height="500" alt="<?=$product['name']?>">
-    <div>
-        <h1 class="name"><?=$product['name']?></h1>
-        <span class="price">
-            &dollar;<?=$product['price']?>
-        </span>
-        <form action="cart.php" method="post">
-            <input type="number" name="quantity" value="1" min="1" max="<?=$product['quantity']?>" placeholder="Quantity" required>
-            <input type="hidden" name="product_id" value="<?=$product['id']?>">
-            <input type="submit" value="Add To Cart">
-        </form>
-        <div class="description">
-            <?=$product['description']?>
+    <div class="containerrr">
+        <div class="product content-wrapper">
+            <img src="<?=$product['img']?>" width="250" height="250" alt="<?=$product['name']?>">
+            <div>
+                <h1 class="name"><?=$product['name']?></h1>
+                <span class="price">
+                    &dollar;<?=$product['price']?>
+                </span>
+                <form action="cart.php" method="post">
+                    <input type="number" name="quantity" value="1" min="1" max="<?=$product['quantity']?>" placeholder="Quantity" required>
+                    <input type="hidden" name="product_id" value="<?=$product['id']?>">
+                    <input type="submit" value="Add To Cart">
+                </form>
+                <div class="description">
+                    <?=$product['description']?>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+</body>
+
+
 
 
  <!-- Footer Section Begin -->
@@ -212,8 +303,15 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     </footer>
     <!-- Footer Section End -->
 
-    <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
+
+
+
+
+
+
+
+ <!-- Js Plugins -->
+ <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/mixitup.min.js"></script>
@@ -222,5 +320,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/masonry.pkgd.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
+    integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
+    integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
+    crossorigin="anonymous"></script>
+
+
 </body>
 </html>
