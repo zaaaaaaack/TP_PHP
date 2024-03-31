@@ -116,8 +116,305 @@ if ($products_in_cart) {
     h2{
     color : white;
     }
-    hr {
-  color: black;
+    main .featured {
+	display: flex;
+	flex-direction: column;
+	background-image: url(imgs/featured-image.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 500px;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+main .featured h2 {
+	display: inline-block;
+	margin: 0;
+	width: 1050px;
+	font-family: Rockwell, Courier Bold, Courier, Georgia, Times, Times New Roman, serif;
+	font-size: 68px;
+	color: #FFFFFF;
+	padding-bottom: 10px;
+}
+main .featured p {
+	display: inline-block;
+	margin: 0;
+	width: 1050px;
+	font-size: 24px;
+	color: #FFFFFF;
+}
+main .recentlyadded h2 {
+	display: block;
+	font-weight: normal;
+	margin: 0;
+	padding: 40px 0;
+	font-size: 24px;
+	text-align: center;
+	width: 100%;
+	border-bottom: 1px solid #EEEEEE;
+}
+main .recentlyadded .products, main .products .products-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	padding: 40px 0 0 0;
+}
+main .recentlyadded .products .product, main .products .products-wrapper .product {
+	display: block;
+	overflow: hidden;
+	text-decoration: none;
+	width: 25%;
+	padding-bottom: 60px;
+}
+main .recentlyadded .products .product img, main .products .products-wrapper .product img {
+	transform: scale(1);
+	transition: transform 1s;
+}
+main .recentlyadded .products .product .name, main .products .products-wrapper .product .name {
+	display: block;
+	color: #555555;
+	padding: 20px 0 2px 0;
+}
+main .recentlyadded .products .product .price, main .products .products-wrapper .product .price {
+	display: block;
+	color: #999999;
+}
+main .recentlyadded .products .product .rrp, main .products .products-wrapper .product .rrp {
+	color: #BBBBBB;
+	text-decoration: line-through;
+}
+main .recentlyadded .products .product:hover img, main .products .products-wrapper .product:hover img {
+	transform: scale(1.05);
+	transition: transform 1s;
+}
+main .recentlyadded .products .product:hover .name, main .products .products-wrapper .product:hover .name {
+	text-decoration: underline;
+}
+main > .product {
+	display: flex;
+	padding: 40px 0;
+}
+main > .product > div {
+	padding-left: 15px;
+}
+main > .product h1 {
+	font-size: 34px;
+	font-weight: normal;
+	margin: 0;
+	padding: 20px 0 10px 0;
+}
+main > .product .price {
+	display: block;
+	font-size: 22px;
+	color: #999999;
+}
+main > .product .rrp {
+	color: #BBBBBB;
+	text-decoration: line-through;
+	font-size: 22px;
+	padding-left: 5px;
+}
+main > .product form {
+	display: flex;
+	flex-flow: column;
+	margin: 40px 0;
+}
+main > .product form input[type="number"] {
+	width: 400px;
+	padding: 10px;
+	margin-bottom: 15px;
+	border: 1px solid #ccc;
+	color: #555555;
+	border-radius: 5px;
+}
+main > .product form input[type="submit"] {
+	background: #4e5c70;
+	border: 0;
+	color: #FFFFFF;
+	width: 400px;
+	padding: 12px 0;
+	text-transform: uppercase;
+	font-size: 14px;
+	font-weight: bold;
+	border-radius: 5px;
+	cursor: pointer;
+}
+main > .product form input[type="submit"]:hover {
+	background: #434f61;
+}
+main > .products h1 {
+	display: block;
+	font-weight: normal;
+	margin: 0;
+	padding: 40px 0;
+	font-size: 24px;
+	text-align: center;
+	width: 100%;
+}
+main > .products .buttons {
+	text-align: right;
+	padding-bottom: 40px;
+}
+main > .products .buttons a {
+	display: inline-block;
+	text-decoration: none;
+	margin-left: 5px;
+	padding: 12px 20px;
+	border: 0;
+	background: #4e5c70;
+	color: #FFFFFF;
+	font-size: 14px;
+	font-weight: bold;
+	border-radius: 5px;
+}
+main > .products .buttons a:hover {
+	background: #434f61;
+}
+main .cart h1 {
+	display: block;
+	font-weight: normal;
+	margin: 0;
+	padding: 40px 0;
+	font-size: 24px;
+	text-align: center;
+	width: 100%;
+}
+main .cart table {
+	width: 100%;
+}
+main .cart table thead td {
+	padding: 30px 0;
+	border-bottom: 1px solid #EEEEEE;
+}
+main .cart table thead td:last-child {
+	text-align: right;
+}
+main .cart table tbody td {
+	padding: 20px 0;
+	border-bottom: 1px solid #EEEEEE;
+}
+main .cart table tbody td:last-child {
+	text-align: right;
+}
+main .cart table .img {
+	width: 80px;
+}
+main .cart table .remove {
+	color: #777777;
+	font-size: 12px;
+	padding-top: 3px;
+}
+main .cart table .remove:hover {
+	text-decoration: underline;
+}
+main .cart table .price {
+	color: #999999;
+}
+main .cart table a {
+	text-decoration: none;
+	color: #555555;
+}
+main .cart table input[type="number"] {
+	width: 68px;
+	padding: 10px;
+	border: 1px solid #ccc;
+	color: #555555;
+	border-radius: 5px;
+}
+main .cart .subtotal {
+	text-align: right;
+	padding: 40px 0;
+}
+main .cart .subtotal .text {
+	padding-right: 40px;
+	font-size: 18px;
+}
+main .cart .subtotal .price {
+	font-size: 18px;
+	color: #999999;
+}
+main .cart .buttons {
+	text-align: right;
+	padding-bottom: 40px;
+}
+main .cart .buttons input[type="submit"] {
+	margin-left: 5px;
+	padding: 12px 20px;
+	border: 0;
+	background: #4e5c70;
+	color: #FFFFFF;
+	font-size: 14px;
+	font-weight: bold;
+	cursor: pointer;
+	border-radius: 5px;
+}
+main .cart .buttons input[type="submit"]:hover {
+	background: #434f61;
+}
+main .placeorder h1 {
+	display: block;
+	font-weight: normal;
+	margin: 0;
+	padding: 40px 0;
+	font-size: 24px;
+	text-align: center;
+	width: 100%;
+}
+main .placeorder p {
+	text-align: center;
+}
+h1, h2, h5 {
+    color: red; /* Change heading colors to red */
+}
+
+body {
+    background-color: #333; /* Change background color to dark */
+    color: #fff; /* Change text color to white */
+}
+
+/* Style for buttons */
+input[type="submit"] {
+    background: #000; /* Black background */
+    border: 0;
+    color: #fff;
+    width: auto; /* Auto width for button */
+    padding: 12px 25px; /* Padding for button */
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 25px; /* Rounded corners */
+    cursor: pointer;
+    transition: background 0.3s ease; /* Smooth transition */
+}
+
+input[type="submit"]:hover {
+    background: #555; /* Darker color on hover */
+}
+
+/* Table styles */
+table {
+    background-color: #222; /* Dark background for table */
+}
+
+table th, table td {
+    border: 1px solid #444; /* Borders for table cells */
+    padding: 10px;
+}
+
+/* Remove default styling for links */
+a {
+    color: #fff; /* White color for links */
+    text-decoration: none; /* Remove underline */
+}
+
+a:hover {
+    color: #f00; /* Red color on hover */
+}
+
+.table-container {
+    margin: 0 auto; /* Auto margin to center horizontally */
+    max-width: 800px; /* Adjust the max-width as needed */
 }
     </style>
 </head>
@@ -171,10 +468,10 @@ if ($products_in_cart) {
 
 
   
-    
-    <div class="cart content-wrapper">
-    <h1>Shopping Cart</h1>
+<div class="cart content-wrapper">
     <form action="cart.php?page=cart" method="post">
+        <div class="table-container">
+        <section>
         <table>
             <thead>
                 <tr>
@@ -194,7 +491,7 @@ if ($products_in_cart) {
                 <tr>
                     <td class="img">
                         <a href="product.php?page=product&id=<?=$product['id']?>">
-                            <img src="imgs/<?=$product['img']?>"alt="<?=$product['name']?>">
+                            <img src="<?=$product['img']?>"  width="50" height="50" alt="<?=$product['name']?>">
                         </a>
                     </td>
                     <td>
@@ -212,6 +509,8 @@ if ($products_in_cart) {
                 <?php endif; ?>
             </tbody>
         </table>
+        </section>
+        </div>
         <div class="subtotal">
             <span class="text">Subtotal</span>
             <span class="price">&dollar;<?=$subtotal?></span>
