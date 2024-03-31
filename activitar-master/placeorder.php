@@ -23,95 +23,6 @@
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <style>
-   * {
-	box-sizing: border-box;
-	font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;
-	font-size: 16px;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-html {
-	height: 100%;
-}
-body {
-	position: relative;
-	min-height: 100%;
-	color: #555555;
-	background-color: #FFFFFF;
-	margin: 0;
-	padding-bottom: 100px; /* Same height as footer */
-}
-h1, h2, h3, h4, h5 {
-	color: #394352;
-}
-.content-wrapper {
-	width: 1050px;
-	margin: 0 auto;
-}
-header {
-	border-bottom: 1px solid #EEEEEE;
-}
-header .content-wrapper {
-	display: flex;
-}
-header h1 {
-	display: flex;
-	flex-grow: 1;
-	flex-basis: 0;
-	font-size: 20px;
-	margin: 0;
-	padding: 24px 0;
-}
-header nav {
-	display: flex;
-	flex-grow: 1;
-	flex-basis: 0;
-	justify-content: center;
-	align-items: center;
-}
-header nav a {
-	text-decoration: none;
-	color: #555555;
-	padding: 10px 10px;
-	margin: 0 10px;
-}
-header nav a:hover {
-	border-bottom: 1px solid #aaa;
-}
-header .link-icons {
-	display: flex;
-	flex-grow: 1;
-	flex-basis: 0;
-	justify-content: flex-end;
-	align-items: center;
-	position: relative;
-}
-header .link-icons a {
-	text-decoration: none;
-	color: #394352;
-	padding: 0 10px;
-}
-header .link-icons a:hover {
-	color: #4e5c70;
-}
-header .link-icons a i {
-	font-size: 18px;
-}
-header .link-icons a span {
-	display: inline-block;
-	text-align: center;
-	background-color: #63748e;
-	border-radius: 50%;
-	color: #FFFFFF;
-	font-size: 12px;
-	line-height: 16px;
-	width: 16px;
-	height: 16px;
-	font-weight: bold;
-	position: absolute;
-	top: 22px;
-	right: 0;
-}
 main .featured {
 	display: flex;
 	flex-direction: column;
@@ -360,13 +271,6 @@ main .placeorder h1 {
 main .placeorder p {
 	text-align: center;
 }
-footer {
-	position: absolute;
-	bottom: 0;
-	border-top: 1px solid #EEEEEE;
-	padding: 20px 0;
-	width: 100%;
-}
     </style>
 </head>
 
@@ -416,11 +320,12 @@ footer {
     </header>
 
     <!-- Header End -->
+	<section>
     <div class="placeorder content-wrapper">
         <h1>Your Order Has Been Placed</h1>
         <p>Thank you for ordering with us! We'll contact you by email with your order details.</p>
     </div>
-
+</section>
      <!-- Footer Section Begin -->
      <footer class="footer-section">
         <div class="container">

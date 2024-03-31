@@ -1,7 +1,7 @@
 <?php
 session_start();
-include "ConnexionBD.php";
-$pdo = ConnexionBD::getInstance();
+include "bd_boutique.php";
+$pdo = pdo_connect_mysql();
 
 
 $stmt = $pdo->prepare('SELECT * FROM products');
@@ -23,7 +23,7 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3cssbootstrap.min.css" integrity="sha384MCw98SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/cssbootstrap.min.css" integrity="sha384MCw98SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
@@ -37,9 +37,6 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
     h2{
     color : white;
     }
-    hr {
-  color: black;
-}
     </style>
 </head>
 
@@ -88,113 +85,93 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </header>
 
-    <!-- Producs' section begins -->
+    <!-- Products' section begins -->
     <?php
-        $men_products = [];
-        $women_products = [];
-        $supplements = [];
+// Supposons que $products est un tableau associatif contenant les données des produits
 
-        foreach ($products as $product) {
-            if ($product['category'] == "Men's sportswear") {
-                $men_products[] = $product;
-            } elseif ($product['category'] == "Women's sportswear") {
-                $women_products[] = $product;
-            } elseif ($product['category'] == "Supplements") {
-                $supplements[] = $product;
-            }
-        }
-    ?>
+$men_products = [];
+$women_products = [];
+$supplements = [];
 
-    <section id="products" >
-        <section id="mproducts" class="section-p1">
-            <hr>
-            <h2>Men's Sportwear</h2>
-            <div class="pro-container">
-    <?php
-    // Display men's products first
-    foreach ($men_products as $product):
-    ?>
-            
+foreach ($products as $product) {
+    if ($product['category'] == "Men sportswear") {
+        $men_products[] = $product;
+    } elseif ($product['category'] == "Women sportswear") {
+        $women_products[] = $product;
+    } elseif ($product['category'] == "Supplements") {
+        $supplements[] = $product;
+    }
+}
+?>
+<section id="products">
+    <section id="mproducts" class="section-p1">
+        <br>
+        <h2>Men's Sportswear</h2>
+        <div class="pro-container">
+            <?php foreach ($men_products as $product): ?>
             <div class="pro">
-            <a href="product.php?id=<?=$product['id']?>"><img src="imgs/<?=$product['img']?>" alt=""></a>
-                        <div class ="des">
-                            <span>admiral</span>
-                            <h5><?=$product['name']?></h5>
-                            <div class="star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <h4>&dollar;<?=$product['price']?></h4>
-                        </div>
-            <a href="product.php?id=<?=$product['id']?>"><i class="fal fa-shopping-cart cart"></i></a>
-    <?php
-    endforeach;
-    ?>
+                <a href="product.php?id=<?= $product['id'] ?>"><img src="<?= $product['img'] ?>" alt=""></a>
+                <div class="des">
+                    <span>admiral</span>
+                    <h5><?= $product['name'] ?></h5>
+                    <div class="star">
+                        <?php for ($i = 0; $i < 5; $i++): ?>
+                            <i class="fas fa-star"></i>
+                        <?php endfor; ?>
+                    </div>
+                    <h4>&dollar;<?= $product['price'] ?></h4>
+                </div>
+                <a href="product.php?id=<?= $product['id'] ?>"><i class="fal fa-shopping-cart cart"></i></a>
             </div>
-        </section>
-
-
-        <section id="mproducts" class="section-p1">
-            <hr>
-            <h2>Women's Sportwear</h2>
-            <div class="pro-container">
-    <?php
-    // Display women's products next 
-    foreach ($women_products as $product):
-    ?>
-            <div class="pro">
-            <a href="product.php?id=<?=$product['id']?>"><img src="imgs/<?=$product['img']?>" alt=""></a>
-                        <div class ="des">
-                            <span>admiral</span>
-                            <h5><?=$product['name']?></h5>
-                            <div class="star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <h4>&dollar;<?=$product['price']?></h4>
-                        </div>
-            <a href="product.php?id=<?=$product['id']?>"><i class="fal fa-shopping-cart cart"></i></a>
-    <?php
-    endforeach;
-    ?>
-            </div>
-        </section>
-
-        <section id="mproducts" class="section-p1">
-            <hr>
-            <h2>supplements</h2>
-            <div class="pro-container">
-    <?php
-    // Display supplements finally
-    foreach ($supplements as $product):
-    ?>
-            <div class="pro">
-            <a href="product.php?id=<?=$product['id']?>"><img src="imgs/<?=$product['img']?>" alt=""></a>
-                        <div class ="des">
-                            <span>admiral</span>
-                            <h5><?=$product['name']?></h5>
-                            <div class="star">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <h4>&dollar;<?=$product['price']?></h4>
-                        </div>
-            <a href="product.php?id=<?=$product['id']?>"><i class="fal fa-shopping-cart cart"></i></a>
-    <?php
-    endforeach;
-    ?>
-            </div>
-        </section>
+            <?php endforeach; ?>
+        </div>
     </section>
+    <section id="mproducts" class="section-p1">
+        <br>
+        <h2>Womens's Sportswear</h2>
+        <div class="pro-container">
+            <?php foreach ($women_products as $product): ?>
+            <div class="pro">
+                <a href="product.php?id=<?= $product['id'] ?>"><img src="<?= $product['img'] ?>" alt=""></a>
+                <div class="des">
+                    <span>admiral</span>
+                    <h5><?= $product['name'] ?></h5>
+                    <div class="star">
+                        <?php for ($i = 0; $i < 5; $i++): ?>
+                            <i class="fas fa-star"></i>
+                        <?php endfor; ?>
+                    </div>
+                    <h4>&dollar;<?= $product['price'] ?></h4>
+                </div>
+                <a href="product.php?id=<?= $product['id'] ?>"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </section>
+    <section id="mproducts" class="section-p1">
+        <br>
+        <h2>Supplements</h2>
+        <div class="pro-container">
+            <?php foreach ($supplements as $product): ?>
+            <div class="pro">
+                <a href="product.php?id=<?= $product['id'] ?>"><img src="<?= $product['img'] ?>" alt=""></a>
+                <div class="des">
+                    <span>admiral</span>
+                    <h5><?= $product['name'] ?></h5>
+                    <div class="star">
+                        <?php for ($i = 0; $i < 5; $i++): ?>
+                            <i class="fas fa-star"></i>
+                        <?php endfor; ?>
+                    </div>
+                    <h4>&dollar;<?= $product['price'] ?></h4>
+                </div>
+                <a href="product.php?id=<?= $product['id'] ?>"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </section>
+    </section>
+
 
 
  <!-- Footer Section Begin -->
