@@ -1,7 +1,7 @@
 <?php
 require_once "../loginFunctions.php";
-checkNotLoggedIn();
-checkLoggedInAsUser();
+//checkNotLoggedIn();
+//checkLoggedInAsUser();
 
  ?>
 
@@ -23,13 +23,8 @@ checkLoggedInAsUser();
         <?php 
         $firstlink = "contactform/findex.php";
         $secondlink= "clients/cindex.php";
-<<<<<<< HEAD
         $thirdtlink= "stock/sindex.php";
-        $lasttlink= "logout.php";
-=======
-        $thirdtlink= "#";
         $lasttlink = '../deconnexion.php';
->>>>>>> 95726826ec631e9e00dd6e61aa0c405e37cfb4d4
         include 'sidebar.php'; ?>
         <!-- Sidebar Ends -->
         <div class="main">

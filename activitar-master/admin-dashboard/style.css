@@ -24,7 +24,7 @@ h2 {
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-image: url("assets/back.svg");
+    background-image: url("assets/backkk.avif");
     background-repeat: no-repeat;
     background-position: center ;
     background-size: cover;
@@ -114,3 +114,6 @@ a.sidebar-link:hover {
     padding-left: 150px;
 }
 
+table{
+    padding-left: 2002PX;
+}

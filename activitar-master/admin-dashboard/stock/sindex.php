@@ -31,15 +31,17 @@ $stocks=$stockrepository->getAll();
         <div class="container"></div>
     <h2>Your stock</h2>
 
-    
-    <br>
+    <div class="main">
     <table class="table">
         <thead>
             <tr>
                 <th>ID</th>
                 <th>name</th>
-                <th>price</th>
+                <th>description</th>
                 <th>image</th>
+                <th>price</th>
+                <th>quantity</th>
+                <th>category</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -53,8 +55,12 @@ $stocks=$stockrepository->getAll();
             <tr>
                 <td><?= $stock->id ?></td>
                 <td><?= $stock->name ?></td>
+                <td><?= $stock->description ?></td>
+                <td><img src="<?= $stock->img ?>" alt="<?= $stock->name ?>" style="max-width: 100px;"></td>
                 <td><?= $stock->price ?></td>
-                <td><img src="<?= $stock->image ?>" alt="<?= $stock->name ?>" style="max-width: 100px;"></td>
+                <td><?= $stock->quantity ?></td>
+                <td><?= $stock->category ?></td>
+
                 <td>
                     <a href="delete.php?id=<?= $stock->id; ?>" class="btn btn-danger btn-sm">Delete</a>
                     <a href="edit.php?id=<?= $stock->id; ?>" class="btn btn-danger btn-sm">Edit</a>
@@ -68,6 +74,8 @@ $stocks=$stockrepository->getAll();
     </table>
         </div>
     </div>
+            </div>
+    
 </body>
 
 </html>

@@ -1,7 +1,7 @@
 <?php
 class ConnexionBD
 {
-private static $_dbname = "tp_php";
+private static $_dbname = "gym";
 private static $_user = "root";
 private static $_pwd = "";
 private static $_host = "localhost";

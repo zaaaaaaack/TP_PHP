@@ -6,29 +6,21 @@
          parent::__construct("stock");
      }
 
-     public function addStock($name, $price,$image) {
-         // Add to database
-         $sql="INSERT INTO stock(name, price, image)" .
-             " VALUES(?, ?, ?)";
-         
-         try{
-             $result = $this->bdd->prepare($sql);
-             $result->execute([$name, $price, $image]);
-             header("location: sindex.php");
-             exit;
-             
-         } catch (Exception $ex) {
-             echo $ex->getMessage();
-         }
-     }
 
-        public function update($id, $name, $price, $image) {
+
+        public function update($id, $name, $description, $img,$price,$quantity,$category) {
             // Update database
-            $sql = "UPDATE stock SET name=?, price=?, image=? WHERE id=?";
-            $result = $this->bdd->prepare($sql);
-            $result->execute([$name, $price, $image, $id]);
-            header("location: ../stock/sindex.php");
-            exit;
+            $sql="UPDATE stock SET name=?, description=?, img=?, price=?, quantity=?, category=? WHERE id=?";
+            
+            try{
+                $result = $this->bdd->prepare($sql);
+                $result->execute([$name, $description, $img, $price, $quantity, $category, $id]);
+                header("location: sindex.php");
+                exit;
+                
+            } catch (Exception $ex) {
+                echo $ex->getMessage();
+            }
         }
 
         public function getById() {

@@ -20,16 +20,20 @@ if (!$stock) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
     $name = $_POST['name'];
+    $description = $_POST['description'];
+    $img = $stock->img; // Default image path
     $price = $_POST['price'];
-    $image = $stock->image; // Default image path
+    $quantity = $_POST['quantity'];
+    $category = $_POST['category'];
+
 
     // Check if a new image is uploaded
     if ($_FILES['image']['error'] === UPLOAD_ERR_OK) {
-        $target_dir = "../assets/";
+        $target_dir = "../../clothes/";
         $target_file = $target_dir . basename($_FILES['image']['name']);
         // Move the uploaded file to the target directory
         if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
-            $image = $target_file; // Update image path if upload successful
+            $img = $target_file; // Update image path if upload successful
         } else {
             echo "Error uploading image.";
             exit();
@@ -39,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Update product in the database
     try {
         // Update the product
-        $stockRepository->update($stock->id, $name, $price, $image);
+        $stockRepository->update($stock->id, $name, $description, $img, $price, $quantity, $category);
         
         // Redirect back to stock page after successful update
         header("Location: sindex.php");
@@ -79,15 +83,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" class="form-control" value="<?= $stock->name ?>">
                 </div>
+                
+                
                 <div class="form-group">
-                    <label for="price">Price:</label>
-                    <input type="text" id="price" name="price" class="form-control" value="<?= $stock->price ?>">
+                    <label for="description">description:</label>
+                    <input type="text" id="description" name="description" class="form-control" value="<?= $stock->description ?>">
                 </div>
+
                 <div class="form-group">
                     <label for="image">Image:</label><br>
                     <img src="<?= $stock->image ?>" alt="Product Image" style="max-width: 200px;"><br>
                     <input type="file" id="image" name="image" class="form-control-file">
                 </div>
+
+                <div class="form-group">
+                    <label for="price">Price:</label>
+                    <input type="text" id="price" name="price" class="form-control" value="<?= $stock->price ?>">
+                </div>
+
+                <div class="form-group">
+                    <label for="quantity">Quantity:</label>
+                    <input type="text" id="quantity" name="quantity" class="form-control" value="<?= $stock->quantity ?>">
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Category:</label>
+                    <input type="text" id="category" name="category" class="form-control" value="<?= $stock->category ?>">
+                </div>
+
                 <button type="submit" class="btn btn-primary">Save Changes</button>
             </form>
         </div>
