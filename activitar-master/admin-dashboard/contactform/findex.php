@@ -23,43 +23,43 @@ $texts=$formrepository->getAll();
         <?php
         $firstlink = "findex.php";
         $secondlink= "../clients/cindex.php";
-        $thirdtlink= "#";
+        $thirdtlink= "../stock/sindex.php";
         $lasttlink= "../logout.php";
         include '../sidebar.php'; ?>
         <!-- Sidebar Ends -->
         <div class="main">
         <div class="container"></div>
-    <h2>Your Messages</h2>
-    <br>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>User Name</th>
-                <th>User Email</th>
-                <th>Message</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            foreach($texts as $text){
-            ?>
-            <tr>
-            <tr>
-                <td><?= $text->id ?></td>
-                <td><?= $text->name ?></td>
-                <td><?= $text->email ?></td>
-                <td><?= $text->message ?></td>
-                <td>
-                    <a href="delete.php?id=<?= $text->id; ?>" class="btn btn-danger btn-sm">Delete</a>
-                </td>
-            </tr>
+            <h2>Your Messages</h2>
+            <br>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>User Name</th>
+                        <th>User Email</th>
+                        <th>Message</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    foreach($texts as $text){
+                    ?>
+                    <tr>
+                    <tr>
+                        <td><?= $text->id ?></td>
+                        <td><?= $text->name ?></td>
+                        <td><?= $text->email ?></td>
+                        <td><?= $text->message ?></td>
+                        <td>
+                            <a href="delete.php?id=<?= $text->id; ?>" class="btn btn-danger btn-sm">Delete</a>
+                        </td>
+                    </tr>
 
-            </tr>
-            <?php } ?>
-        </tbody>
-    </table>
+                    </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
         </div>
     </div>
 </body>

@@ -16,12 +16,13 @@
         <?php 
         $firstlink = "contactform/findex.php";
         $secondlink= "clients/cindex.php";
-        $thirdtlink= "#";
+        $thirdtlink= "stock/sindex.php";
         $lasttlink= "logout.php";
         include 'sidebar.php'; ?>
         <!-- Sidebar Ends -->
         <div class="main">
-            <h2>idk what to put heree </h2>
+            <h2>Admin Dashboard</h2>
+            <img src="assets/administrator.png" alt="">
         </div>
     </div>
 </body>

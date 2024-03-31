@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <?php
         $firstlink = "../contactform/findex.php";
         $secondlink= "cindex.php";
-        $thirdtlink= "#";
+        $thirdtlink= "../stock/sindex.php";
         $lasttlink= "../logout.php";
         include '../sidebar.php'; ?>
         <!-- Sidebar Ends -->
