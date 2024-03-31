@@ -2,11 +2,13 @@
 
 ?>
 
+
+
 <aside id="sidebar">
             <input type="checkbox" name="" id="toggler">
             <label for="toggler" class="toggle-btn">
                 <i class="lni lni-grid-alt"></i>
-                <span>esm</span>
+                <span><?php echo $_SESSION["adminUsername"] ?></span>
             </label>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
@@ -18,7 +20,7 @@
                 <li class="sidebar-item">
                     <a href="<?php echo $secondlink?>" class="sidebar-link">
                         <i class="lni lni-customer"></i>
-                        <span>Clients</span>
+                        <span>users</span>
                     </a>
                 </li>
                 <li class="sidebar-item">

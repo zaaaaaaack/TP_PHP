@@ -1,9 +1,14 @@
 
 <?php
-session_start();
 include_once '../autoload.php';
+require_once "../../loginFunctions.php";
+checkLoggedInAsUser();
+checkNotLoggedIn();
+
+
+
 $usersrepository=new UsersRepository();
-$clients=$usersrepository->getAll();
+$users=$usersrepository->getAll();
 ?>
 
 
@@ -23,14 +28,19 @@ $clients=$usersrepository->getAll();
         <?php
         $firstlink = "../contactform/findex.php";
         $secondlink= "cindex.php";
+<<<<<<< HEAD
         $thirdtlink= "../stock/sindex.php";
         $lasttlink= "../logout.php";
+=======
+        $thirdtlink= "#";
+        $lasttlink = "../../deconnexion.php";
+>>>>>>> 95726826ec631e9e00dd6e61aa0c405e37cfb4d4
         include '../sidebar.php'; ?>
         <!-- Sidebar Ends -->
         <div class="main">
         <div class="container"></div>
-    <h2>List of clients</h2>
-    <a href="create.php" class="btn btn-danger" role="button">New Client</a>
+    <h2>List of users</h2>
+    <a href="create.php" class="btn btn-danger" role="button">New user</a>
     <br>
     <table class="table">
         <thead>
@@ -49,19 +59,19 @@ $clients=$usersrepository->getAll();
 
             <?php
             
-            foreach($clients as $client){
+            foreach($users as $user){
             ?>
             <tr>
             <tr>
-                <td><?= $client->id ?></td>
-                <td><?= $client->full_name ?></td>
-                <td><?= $client->username ?></td>
-                <td><?= $client->email ?></td>
-                <td><?= $client->phone ?></td>
-                <td><?= $client->password ?></td>
-                <td><?= $client->created_at ?></td>
+                <td><?= $user->id ?></td>
+                <td><?= $user->fullname ?></td>
+                <td><?= $user->username ?></td>
+                <td><?= $user->email ?></td>
+                <td><?= $user->phone ?></td>
+                <td><?= $user->password ?></td>
+                <td><?= $user->date_inscription ?></td>
                 <td>
-                    <a href="delete.php?id=<?= $client->id; ?>" class="btn btn-danger btn-sm">Delete</a>
+                    <a href="delete.php?id=<?= $user->id; ?>" class="btn btn-danger btn-sm">Delete</a>
                 </td>
             </tr>
 

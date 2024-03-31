@@ -1,5 +1,8 @@
 <?php
-    session_start();
+require_once "../../loginFunctions.php";
+checkLoggedInAsUser();
+checkNotLoggedIn();
+
     include_once '../autoload.php';
     $bdd=ConnexionBD::getInstance();
 

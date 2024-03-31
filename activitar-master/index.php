@@ -1,3 +1,12 @@
+<?php 
+session_start();
+require 'loginFunctions.php';
+checkLoggedInAsUser();
+checkLoggedInAsAdmin();
+    
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
