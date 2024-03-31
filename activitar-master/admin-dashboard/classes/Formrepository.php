@@ -1,5 +1,7 @@
 <?php
 
+include_once'../autoload.php';
+
 class Formrepository extends Repository {
     public function __construct() {
         parent::__construct("form");

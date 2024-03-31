@@ -1,14 +1,9 @@
 
 <?php
+session_start();
 include_once '../autoload.php';
-require_once "../../loginFunctions.php";
-checkLoggedInAsUser();
-checkNotLoggedIn();
-
-
-
-$usersrepository=new UsersRepository();
-$users=$usersrepository->getAll();
+$stockrepository=new StockRepository();
+$stocks=$stockrepository->getAll();
 ?>
 
 
@@ -27,31 +22,24 @@ $users=$usersrepository->getAll();
         <!-- Sidebar Begins -->
         <?php
         $firstlink = "../contactform/findex.php";
-        $secondlink= "cindex.php";
-<<<<<<< HEAD
-        $thirdtlink= "../stock/sindex.php";
+        $secondlink= "../clients/cindex.php";
+        $thirdtlink= "sindex.php";
         $lasttlink= "../logout.php";
-=======
-        $thirdtlink= "#";
-        $lasttlink = "../../deconnexion.php";
->>>>>>> 95726826ec631e9e00dd6e61aa0c405e37cfb4d4
         include '../sidebar.php'; ?>
         <!-- Sidebar Ends -->
         <div class="main">
         <div class="container"></div>
-    <h2>List of users</h2>
-    <a href="create.php" class="btn btn-danger" role="button">New user</a>
+    <h2>Your stock</h2>
+
+    
     <br>
     <table class="table">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Full name</th>
-                <th>Username</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Password</th>
-                <th>Created at</th>
+                <th>name</th>
+                <th>price</th>
+                <th>image</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -59,20 +47,19 @@ $users=$usersrepository->getAll();
 
             <?php
             
-            foreach($users as $user){
+            foreach($stocks as $stock){
             ?>
             <tr>
             <tr>
-                <td><?= $user->id ?></td>
-                <td><?= $user->fullname ?></td>
-                <td><?= $user->username ?></td>
-                <td><?= $user->email ?></td>
-                <td><?= $user->phone ?></td>
-                <td><?= $user->password ?></td>
-                <td><?= $user->date_inscription ?></td>
+                <td><?= $stock->id ?></td>
+                <td><?= $stock->name ?></td>
+                <td><?= $stock->price ?></td>
+                <td><img src="<?= $stock->image ?>" alt="<?= $stock->name ?>" style="max-width: 100px;"></td>
                 <td>
-                    <a href="delete.php?id=<?= $user->id; ?>" class="btn btn-danger btn-sm">Delete</a>
+                    <a href="delete.php?id=<?= $stock->id; ?>" class="btn btn-danger btn-sm">Delete</a>
+                    <a href="edit.php?id=<?= $stock->id; ?>" class="btn btn-danger btn-sm">Edit</a>
                 </td>
+
             </tr>
 
             </tr>
