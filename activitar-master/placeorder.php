@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3cssbootstrap.min.css" integrity="sha384MCw98SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/cssbootstrap.min.css" integrity="sha384MCw98SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
@@ -22,255 +22,35 @@
     <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
-    <style>
-main .featured {
-	display: flex;
-	flex-direction: column;
-	background-image: url(imgs/featured-image.jpg);
-	background-repeat: no-repeat;
-	background-size: cover;
-	height: 500px;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
+    <style> 
+.placeorder-content {
+    text-align: center;
+    padding: 140px;
+    background-color: black;
+    border: 0 solid #ddd;
+    margin-top: 0;
 }
-main .featured h2 {
-	display: inline-block;
-	margin: 0;
-	width: 1050px;
-	font-family: Rockwell, Courier Bold, Courier, Georgia, Times, Times New Roman, serif;
-	font-size: 68px;
-	color: #FFFFFF;
-	padding-bottom: 10px;
+.header-section {
+    background-color: black;
+    /* Other styles */
 }
-main .featured p {
-	display: inline-block;
-	margin: 0;
-	width: 1050px;
-	font-size: 24px;
-	color: #FFFFFF;
+
+.main-content {
+    padding-top: 0; /* Adjust this value according to your preference */
+    padding-bottom: 0; /* Adjust this value according to your preference */
 }
-main .recentlyadded h2 {
-	display: block;
-	font-weight: normal;
-	margin: 0;
-	padding: 40px 0;
-	font-size: 24px;
-	text-align: center;
-	width: 100%;
-	border-bottom: 1px solid #EEEEEE;
+
+.footer-section {
+    margin-bottom: 0; /* Remove bottom margin */
 }
-main .recentlyadded .products, main .products .products-wrapper {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	justify-content: space-between;
-	padding: 40px 0 0 0;
+
+html,body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: black;
 }
-main .recentlyadded .products .product, main .products .products-wrapper .product {
-	display: block;
-	overflow: hidden;
-	text-decoration: none;
-	width: 25%;
-	padding-bottom: 60px;
-}
-main .recentlyadded .products .product img, main .products .products-wrapper .product img {
-	transform: scale(1);
-	transition: transform 1s;
-}
-main .recentlyadded .products .product .name, main .products .products-wrapper .product .name {
-	display: block;
-	color: #555555;
-	padding: 20px 0 2px 0;
-}
-main .recentlyadded .products .product .price, main .products .products-wrapper .product .price {
-	display: block;
-	color: #999999;
-}
-main .recentlyadded .products .product .rrp, main .products .products-wrapper .product .rrp {
-	color: #BBBBBB;
-	text-decoration: line-through;
-}
-main .recentlyadded .products .product:hover img, main .products .products-wrapper .product:hover img {
-	transform: scale(1.05);
-	transition: transform 1s;
-}
-main .recentlyadded .products .product:hover .name, main .products .products-wrapper .product:hover .name {
-	text-decoration: underline;
-}
-main > .product {
-	display: flex;
-	padding: 40px 0;
-}
-main > .product > div {
-	padding-left: 15px;
-}
-main > .product h1 {
-	font-size: 34px;
-	font-weight: normal;
-	margin: 0;
-	padding: 20px 0 10px 0;
-}
-main > .product .price {
-	display: block;
-	font-size: 22px;
-	color: #999999;
-}
-main > .product .rrp {
-	color: #BBBBBB;
-	text-decoration: line-through;
-	font-size: 22px;
-	padding-left: 5px;
-}
-main > .product form {
-	display: flex;
-	flex-flow: column;
-	margin: 40px 0;
-}
-main > .product form input[type="number"] {
-	width: 400px;
-	padding: 10px;
-	margin-bottom: 15px;
-	border: 1px solid #ccc;
-	color: #555555;
-	border-radius: 5px;
-}
-main > .product form input[type="submit"] {
-	background: #4e5c70;
-	border: 0;
-	color: #FFFFFF;
-	width: 400px;
-	padding: 12px 0;
-	text-transform: uppercase;
-	font-size: 14px;
-	font-weight: bold;
-	border-radius: 5px;
-	cursor: pointer;
-}
-main > .product form input[type="submit"]:hover {
-	background: #434f61;
-}
-main > .products h1 {
-	display: block;
-	font-weight: normal;
-	margin: 0;
-	padding: 40px 0;
-	font-size: 24px;
-	text-align: center;
-	width: 100%;
-}
-main > .products .buttons {
-	text-align: right;
-	padding-bottom: 40px;
-}
-main > .products .buttons a {
-	display: inline-block;
-	text-decoration: none;
-	margin-left: 5px;
-	padding: 12px 20px;
-	border: 0;
-	background: #4e5c70;
-	color: #FFFFFF;
-	font-size: 14px;
-	font-weight: bold;
-	border-radius: 5px;
-}
-main > .products .buttons a:hover {
-	background: #434f61;
-}
-main .cart h1 {
-	display: block;
-	font-weight: normal;
-	margin: 0;
-	padding: 40px 0;
-	font-size: 24px;
-	text-align: center;
-	width: 100%;
-}
-main .cart table {
-	width: 100%;
-}
-main .cart table thead td {
-	padding: 30px 0;
-	border-bottom: 1px solid #EEEEEE;
-}
-main .cart table thead td:last-child {
-	text-align: right;
-}
-main .cart table tbody td {
-	padding: 20px 0;
-	border-bottom: 1px solid #EEEEEE;
-}
-main .cart table tbody td:last-child {
-	text-align: right;
-}
-main .cart table .img {
-	width: 80px;
-}
-main .cart table .remove {
-	color: #777777;
-	font-size: 12px;
-	padding-top: 3px;
-}
-main .cart table .remove:hover {
-	text-decoration: underline;
-}
-main .cart table .price {
-	color: #999999;
-}
-main .cart table a {
-	text-decoration: none;
-	color: #555555;
-}
-main .cart table input[type="number"] {
-	width: 68px;
-	padding: 10px;
-	border: 1px solid #ccc;
-	color: #555555;
-	border-radius: 5px;
-}
-main .cart .subtotal {
-	text-align: right;
-	padding: 40px 0;
-}
-main .cart .subtotal .text {
-	padding-right: 40px;
-	font-size: 18px;
-}
-main .cart .subtotal .price {
-	font-size: 18px;
-	color: #999999;
-}
-main .cart .buttons {
-	text-align: right;
-	padding-bottom: 40px;
-}
-main .cart .buttons input[type="submit"] {
-	margin-left: 5px;
-	padding: 12px 20px;
-	border: 0;
-	background: #4e5c70;
-	color: #FFFFFF;
-	font-size: 14px;
-	font-weight: bold;
-	cursor: pointer;
-	border-radius: 5px;
-}
-main .cart .buttons input[type="submit"]:hover {
-	background: #434f61;
-}
-main .placeorder h1 {
-	display: block;
-	font-weight: normal;
-	margin: 0;
-	padding: 40px 0;
-	font-size: 24px;
-	text-align: center;
-	width: 100%;
-}
-main .placeorder p {
-	text-align: center;
-}
+
     </style>
 </head>
 
@@ -296,7 +76,7 @@ main .placeorder p {
                             <li><a href="./about-us.html">About us</a></li>
                             <li><a href="./schedule.html">Schedule</a></li>
                             <li><a href="./gallery.html">Gallery</a></li>
-                            <li  class="active" ><a href="./e-boutique.html">Store</a></li>
+                            <li class="active" ><a href="./e-boutique.html">Store</a></li>
                             <li><a href="./blog.html">Blog</a>
                                 <ul class="dropdown">
                                     <li><a href="./about-us.html">About Us</a></li>
@@ -320,13 +100,13 @@ main .placeorder p {
     </header>
 
     <!-- Header End -->
-	<section>
-    <div class="placeorder content-wrapper">
-        <h1>Your Order Has Been Placed</h1>
-        <p>Thank you for ordering with us! We'll contact you by email with your order details.</p>
-    </div>
-</section>
-     <!-- Footer Section Begin -->
+<div class="main-content">
+        <div class="placeorder-content" >
+            <h1 style="color:#e4381C;">Your Order Has Been Placed</h1>
+            <p>Thank you for ordering with us! We'll contact you by email with your order details.</p>
+        </div>
+</div>
+    <!-- Footer Section Begin -->
      <footer class="footer-section">
         <div class="container">
             <div class="row">
