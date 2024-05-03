@@ -1,7 +1,7 @@
 <?php
 session_start();
-include 'bd_boutique.php';
-$pdo = pdo_connect_mysql();
+include './admin-dashboard/classes/ConnexionBD.php';
+$pdo = ConnexionBD::getInstance();
 
 // If the user clicked the add to cart button on the product page we can check for the form data
 if (isset($_POST['product_id'], $_POST['quantity']) && is_numeric($_POST['product_id']) && is_numeric($_POST['quantity'])) {
@@ -60,6 +60,7 @@ if (isset($_POST['update']) && isset($_SESSION['cart'])) {
 }
 
 if (isset($_POST['placeorder']) && isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
+    
     header('Location: placeorder.php');
     exit;
 }
@@ -220,7 +221,7 @@ body {
 	height: 100%;
 	font-family: "Nunito Sans", sans-serif;
 	-webkit-font-smoothing: antialiased;
-	font-smoothing: antialiased;
+    font-smooth: antialiased;
 }
 
 
@@ -241,7 +242,15 @@ body {
         <div class="container-fluid" style="display: flex;">
             <div class="logo">
                 <a href="./index.php">
+                <?php 
+                        if(isset($_SESSION['username'])){
+                            echo "<h4 style='color:white;'>".$_SESSION['username']."<i class='fa fa-user'></i></h4>";
+                        }
+                        else{
+                    ?>
                     <img src="img/logo.png" alt="">
+                    <?php } ?>
+                    
                 </a>
             </div>
             <div class="container">
@@ -252,7 +261,7 @@ body {
                             <li><a href="./about-us.html">About us</a></li>
                             <li><a href="./schedule.html">Schedule</a></li>
                             <li><a href="./gallery.html">Gallery</a></li>
-                            <li  class="active" ><a href="./e-boutique.html">Store</a></li>
+                            <li  class="active" ><a href="./boutique.php">Store</a></li>
                             <li><a href="./blog.html">Blog</a>
                                 <ul class="dropdown">
                                     <li><a href="./about-us.html">About Us</a></li>
@@ -260,6 +269,13 @@ body {
                                 </ul>
                             </li>
                             <li><a href="./contact.html">Contacts</a></li>
+                            <?php 
+                                if(isset($_SESSION['username'])){
+                                    echo "<li><a href='./cart.php'>Cart</a></li>";
+                                    echo "<li><a href='deconnexion.php'>Logout</a></li>";
+                                    
+                                } else{
+                                    echo "<li><a href='login.php'>Login</a></li>";}?>
                         </ul>
                     </nav>
                 </div>
@@ -269,7 +285,8 @@ body {
                 <a href="#"><i class="fa fa-linkedin"></i></a>
                 <a href="#"><i class="fa fa-youtube-play"></i></a>
                 <a href="#"><i class="fa fa-instagram"></i></a>
-                <a href="#"><i class="fa fa-cart-arrow-down"></i></a>
+                <a href="deconnexion.php"><i class="fa fa-user"></i></a>
+                <a href="boutique.php"><i class="fa fa-cart-arrow-down"></i></a>
             </div>
             <div id="mobile-menu-wrap"></div>
         </div>

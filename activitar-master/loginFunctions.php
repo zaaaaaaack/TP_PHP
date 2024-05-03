@@ -1,8 +1,10 @@
 <?php
+
+   
 function attemptLogin($tableName, $redirectPage) {
 
     if(session_status() !== PHP_SESSION_ACTIVE) session_start();
-    require 'ConnexionBD.php';
+    require './admin-dashboard/classes/ConnexionBD.php';
 
     if(isset($_POST['submit']) || isset($_POST['login'])) {
         if(!empty($_POST['username']) && !empty($_POST['password'])) {

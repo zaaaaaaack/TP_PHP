@@ -1,3 +1,10 @@
+<?php 
+    require_once "loginFunctions.php";
+    checkNotLoggedIn();
+    $_SESSION['cart'] = array();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -65,7 +72,14 @@ html,body {
         <div class="container-fluid" style="display: flex;">
             <div class="logo">
                 <a href="./index.php">
+                <?php 
+                        if(isset($_SESSION['username'])){
+                            echo "<h4 style='color:white;'>".$_SESSION['username']."<i class='fa fa-user'></i></h4>";
+                        }
+                        else{
+                    ?>
                     <img src="img/logo.png" alt="">
+                    <?php } ?>
                 </a>
             </div>
             <div class="container">
@@ -76,7 +90,7 @@ html,body {
                             <li><a href="./about-us.html">About us</a></li>
                             <li><a href="./schedule.html">Schedule</a></li>
                             <li><a href="./gallery.html">Gallery</a></li>
-                            <li class="active" ><a href="./e-boutique.html">Store</a></li>
+                            <li class="active" ><a href="./boutique.php">Store</a></li>
                             <li><a href="./blog.html">Blog</a>
                                 <ul class="dropdown">
                                     <li><a href="./about-us.html">About Us</a></li>
@@ -84,6 +98,14 @@ html,body {
                                 </ul>
                             </li>
                             <li><a href="./contact.html">Contacts</a></li>
+                            <?php 
+                                if(isset($_SESSION['username'])){
+                                    echo "<li><a href='./cart.php'>Cart</a></li>";
+                                    echo "<li><a href='deconnexion.php'>Logout</a></li>";
+                                    
+                                }else{
+                                    echo "<li><a href='login.php'>Login</a></li>";
+                                 } ?>
                         </ul>
                     </nav>
                 </div>
@@ -93,7 +115,8 @@ html,body {
                 <a href="#"><i class="fa fa-linkedin"></i></a>
                 <a href="#"><i class="fa fa-youtube-play"></i></a>
                 <a href="#"><i class="fa fa-instagram"></i></a>
-                <a href="#"><i class="fa fa-cart-arrow-down"></i></a>
+                <a href="deconnexion.php"><i class="fa fa-user"></i></a>
+                <a href="boutique.php"><i class="fa fa-cart-arrow-down"></i></a>
             </div>
             <div id="mobile-menu-wrap"></div>
         </div>

@@ -3,14 +3,14 @@
 
  class Stockrepository extends Repository {
      public function __construct() {
-         parent::__construct("stock");
+         parent::__construct("products");
      }
 
 
 
         public function update($id, $name, $description, $img,$price,$quantity,$category) {
             // Update database
-            $sql="UPDATE stock SET name=?, description=?, img=?, price=?, quantity=?, category=? WHERE id=?";
+            $sql="UPDATE products SET name=?, description=?, img=?, price=?, quantity=?, category=? WHERE id=?";
             
             try{
                 $result = $this->bdd->prepare($sql);
@@ -25,7 +25,7 @@
 
         public function getById() {
             $id = $_GET['id'];
-            $sql = "SELECT * FROM stock WHERE id=?";
+            $sql = "SELECT * FROM products WHERE id=?";
             $result = $this->bdd->prepare($sql);
             $result->execute([$id]);
             return $result->fetch((PDO::FETCH_OBJ));
