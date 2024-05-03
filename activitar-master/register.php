@@ -1,6 +1,6 @@
 <?php 
 session_start();
-    require 'ConnexionBD.php';
+    require './admin-dashboard/classes/ConnexionBD.php';
     require 'loginFunctions.php';
     $bdd = ConnexionBD::getInstance();
     checkLoggedInAsUser();

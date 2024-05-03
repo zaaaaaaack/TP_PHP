@@ -24,7 +24,7 @@ checkLoggedInAsUser();
         $firstlink = "contactform/findex.php";
         $secondlink= "clients/cindex.php";
         $thirdtlink= "stock/sindex.php";
-        $lasttlink = '../deconnexion.php';
+        $lasttlink = "../deconnexion.php";
         include 'sidebar.php'; ?>
         <!-- Sidebar Ends -->
         <div class="main">

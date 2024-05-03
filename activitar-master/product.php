@@ -1,7 +1,7 @@
     <?php
     // Check to make sure the id parameter is specified in the URL
-    include 'bd_boutique.php';
-    $pdo = pdo_connect_mysql();
+    include './admin-dashboard/classes/ConnexionBD.php';
+    $pdo = ConnexionBD::getInstance();
 
     if (isset($_GET['id'])) {
         // Prepare statement and execute, prevents SQL injection
@@ -56,7 +56,7 @@
         height: 100%;
         font-family: "Nunito Sans", sans-serif;
         -webkit-font-smoothing: antialiased;
-        font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
     }
     /* Apply styles to the container */
         .containerrr {
@@ -143,7 +143,14 @@
             <div style="display: flex;">
                 <div class="logo">
                     <a href="./index.php">
-                        <img src="img/logo.png" alt="">
+                    <?php 
+                        if(isset($_SESSION['username'])){
+                            echo "<h4 style='color:white;'>".$_SESSION['username']."<i class='fa fa-user'></i></h4>";
+                        }
+                        else{
+                    ?>
+                    <img src="img/logo.png" alt="">
+                    <?php } ?>
                     </a>
                 </div>
                 <div class="container">
@@ -154,7 +161,7 @@
                                 <li><a href="./about-us.html">About us</a></li>
                                 <li><a href="./schedule.html">Schedule</a></li>
                                 <li><a href="./gallery.html">Gallery</a></li>
-                                <li  ><a href="./e-boutique.html">Store</a></li>
+                                <li  ><a href="./boutique.php">Store</a></li>
                                 <li><a href="./blog.html">Blog</a>
                                     <ul class="dropdown">
                                         <li><a href="./about-us.html">About Us</a></li>
@@ -162,6 +169,15 @@
                                     </ul>
                                 </li>
                                 <li><a href="./contact.html">Contacts</a></li>
+                                <?php 
+                                if(isset($_SESSION['username'])){
+                                    echo "<li><a href='./cart.php'>Cart</a></li>";
+                                    echo "<li><a href='deconnexion.php'>Logout</a></li>";
+                                    
+                                }else{
+                                    echo "<li><a href='login.php'>Login</a></li>";
+                                
+                                } ?>
                             </ul>
                         </nav>
                     </div>
@@ -171,7 +187,8 @@
                     <a href="#"><i class="fa fa-linkedin"></i></a>
                     <a href="#"><i class="fa fa-youtube-play"></i></a>
                     <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-cart-arrow-down"></i></a>
+                    <a href="deconnexion.php"><i class="fa fa-user"></i></a>
+                    <a href="boutique.php"><i class="fa fa-cart-arrow-down"></i></a>
                 </div>
                 <div id="mobile-menu-wrap"></div>
             </div>
